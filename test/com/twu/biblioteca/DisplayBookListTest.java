@@ -49,5 +49,13 @@ public class DisplayBookListTest {
         assertEquals("First book\nSecond book\nThird book\n", outContent.toString());
     }
 
+    @Test
+    public void shouldDisplayNameOfTheBookAlongWithAuthorAndTheYearOfPublish() {
+        Book book = new Book("Two states", "chetan", 2008);
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+
+        listOfBooks.add(book);
+    }
+
 
 }
