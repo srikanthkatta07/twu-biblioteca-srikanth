@@ -4,15 +4,15 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class DisplayBookList {
-    private ArrayList<String> listOfBooks;
+    private ArrayList<Book> listOfBooks;
 
-    public DisplayBookList(ArrayList<String> listOfBooks) {
+    public DisplayBookList(ArrayList<Book> listOfBooks) {
         this.listOfBooks = listOfBooks;
 
     }
 
     public void displayBookList() {
-        for (String book : listOfBooks)
-            System.out.println(book);
+        for (Book book : listOfBooks)
+            System.out.println(book.getDetails());
     }
 }

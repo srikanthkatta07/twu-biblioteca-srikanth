@@ -22,40 +22,32 @@ public class DisplayBookListTest {
     }
 
     @Test
-    public void shouldDisplayListOfBooksWhenOnlyOneBookIsAvailable() {
-        ArrayList<String> listOfBooks = new ArrayList<String>();
-
-        listOfBooks.add("First book");
-
-        DisplayBookList display = new DisplayBookList(listOfBooks);
-
-        display.displayBookList();
-
-        assertEquals("First book\n", outContent.toString());
-    }
-
-    @Test
-    public void shouldDisplayListOfBooksWhenMoreThanOneBook() {
-        ArrayList<String> listOfBooks = new ArrayList<String>();
-
-        listOfBooks.add("First book");
-        listOfBooks.add("Second book");
-        listOfBooks.add("Third book");
-
-        DisplayBookList display = new DisplayBookList(listOfBooks);
-
-        display.displayBookList();
-
-        assertEquals("First book\nSecond book\nThird book\n", outContent.toString());
-    }
-
-    @Test
-    public void shouldDisplayNameOfTheBookAlongWithAuthorAndTheYearOfPublish() {
-        Book book = new Book("Two states", "chetan", 2008);
+    public void shouldDisplayBookWithAuthorAndYearOfPublishWhenOnlyOneBookIsAvailable() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book book = new Book("Twostates", "chetan", 2008);
 
         listOfBooks.add(book);
+
+        DisplayBookList display = new DisplayBookList(listOfBooks);
+
+        display.displayBookList();
+
+        assertEquals("Twostates chetan 2008\n", outContent.toString());
     }
 
+    @Test
+    public void shouldDisplayListOfBooksWithAuthorAndYearOfPublishWhenMoreThanOneBookIsAvailable() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book firstBook = new Book("FirstBook", "FirstAuthor", 2008);
+        Book secondBook = new Book("SecondBook", "SecondAuthor", 2009);
 
+        listOfBooks.add(firstBook);
+        listOfBooks.add(secondBook);
+
+        DisplayBookList display = new DisplayBookList(listOfBooks);
+
+        display.displayBookList();
+
+        assertEquals("FirstBook FirstAuthor 2008\nSecondBook SecondAuthor 2009\n", outContent.toString());
+    }
 }
