@@ -18,7 +18,10 @@ public class MainMenu {
             System.out.println(options);
     }
 
-    public void selectOption(int option) {
-        bookList.displayBookList();
+    public void selectOption(String option) {
+        if (option.equals("1"))
+            bookList.displayBookList();
+        else
+            bookList.displayInvalidCommand();
     }
 }

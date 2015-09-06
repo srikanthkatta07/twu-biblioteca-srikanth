@@ -15,4 +15,8 @@ public class DisplayBookList {
         for (Book book : listOfBooks)
             System.out.println(book.getDetails());
     }
+
+    public void displayInvalidCommand() {
+        System.out.println("Select a valid option!");
+    }
 }
