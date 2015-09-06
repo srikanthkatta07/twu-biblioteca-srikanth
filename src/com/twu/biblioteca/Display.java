@@ -3,10 +3,10 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class DisplayBookList {
+public class Display {
     private ArrayList<Book> listOfBooks;
 
-    public DisplayBookList(ArrayList<Book> listOfBooks) {
+    public Display(ArrayList<Book> listOfBooks) {
         this.listOfBooks = listOfBooks;
 
     }
@@ -18,5 +18,9 @@ public class DisplayBookList {
 
     public void displayInvalidCommand() {
         System.out.println("Select a valid option!");
+    }
+
+    public void displayMessage(String welcomeMessage) {
+        System.out.println(welcomeMessage);
     }
 }

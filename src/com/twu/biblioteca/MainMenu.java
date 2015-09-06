@@ -1,14 +1,13 @@
+//showing the list of option available to the user
 package com.twu.biblioteca;
-
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 import java.util.ArrayList;
 
 public class MainMenu {
-    private DisplayBookList bookList;
+    private Display bookList;
     ArrayList<String> menuList;
 
-    public MainMenu(ArrayList<String> menuList, DisplayBookList bookList) {
+    public MainMenu(ArrayList<String> menuList, Display bookList) {
         this.menuList = menuList;
         this.bookList = bookList;
     }

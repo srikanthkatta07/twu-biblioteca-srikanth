@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
-public class DisplayBookListTest {
+public class DisplayTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -22,13 +22,23 @@ public class DisplayBookListTest {
     }
 
     @Test
+    public void shouldDisplayWelcomeMessage() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Display welcomeMessage = new Display(listOfBooks);
+
+        welcomeMessage.displayMessage("Welcome to Biblioteca");
+
+        assertEquals("Welcome to Biblioteca\n", outContent.toString());
+    }
+
+    @Test
     public void shouldDisplayBookWithAuthorAndYearOfPublishWhenOnlyOneBookIsAvailable() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book book = new Book("Twostates", "chetan", 2008);
 
         listOfBooks.add(book);
 
-        DisplayBookList display = new DisplayBookList(listOfBooks);
+        Display display = new Display(listOfBooks);
 
         display.displayBookList();
 
@@ -44,7 +54,7 @@ public class DisplayBookListTest {
         listOfBooks.add(firstBook);
         listOfBooks.add(secondBook);
 
-        DisplayBookList display = new DisplayBookList(listOfBooks);
+        Display display = new Display(listOfBooks);
 
         display.displayBookList();
 

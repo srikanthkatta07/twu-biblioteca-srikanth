@@ -29,7 +29,7 @@ public class MainMenuTest {
     @Test
     public void shouldDisplayListOfAvailableOptionsToTheUser() {
         ArrayList<String> menuList = new ArrayList<String>();
-        DisplayBookList bookList = mock(DisplayBookList.class);
+        Display bookList = mock(Display.class);
 
         menuList.add("1.ListOfBooks");
 
@@ -42,7 +42,7 @@ public class MainMenuTest {
 
     @Test
     public void shouldDisplayListOfBooksWhenUserSelectedOptioOne() {
-        DisplayBookList bookList = mock(DisplayBookList.class);
+        Display bookList = mock(Display.class);
         ArrayList<String> menuList = new ArrayList<String>();
 
         menuList.add("1.ListOfBooks");
@@ -56,7 +56,7 @@ public class MainMenuTest {
 
     @Test
     public void shouldDisplayInvalidMessageWhenUserEntersInvalidOption() {
-        DisplayBookList bookList = mock(DisplayBookList.class);
+        Display bookList = mock(Display.class);
         ArrayList<String> menuList = new ArrayList<String>();
 
         menuList.add("1.ListOfBooks");
