@@ -1,4 +1,4 @@
-//To display the list of books
+//To display list of commands and other messages
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
@@ -22,5 +22,9 @@ public class Display {
 
     public void displayMessage(String welcomeMessage) {
         System.out.println(welcomeMessage);
+    }
+
+    public void exitMenu() {
+        System.exit(0);
     }
 }

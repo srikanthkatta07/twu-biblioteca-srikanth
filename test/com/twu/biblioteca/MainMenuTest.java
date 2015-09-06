@@ -9,12 +9,12 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class MainMenuTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private ArrayList<String> menuList;
+    private Display bookList;
 
     @Before
     public void setUpStreams() {
@@ -26,12 +26,15 @@ public class MainMenuTest {
         System.setOut(System.out);
     }
 
+    @Before
+    public void intialSetUp() {
+        menuList = new ArrayList<String>();
+        bookList = mock(Display.class);
+        menuList.add("1.ListOfBooks");
+    }
+
     @Test
     public void shouldDisplayListOfAvailableOptionsToTheUser() {
-        ArrayList<String> menuList = new ArrayList<String>();
-        Display bookList = mock(Display.class);
-
-        menuList.add("1.ListOfBooks");
 
         MainMenu mainMenu = new MainMenu(menuList, bookList);
 
@@ -42,10 +45,6 @@ public class MainMenuTest {
 
     @Test
     public void shouldDisplayListOfBooksWhenUserSelectedOptioOne() {
-        Display bookList = mock(Display.class);
-        ArrayList<String> menuList = new ArrayList<String>();
-
-        menuList.add("1.ListOfBooks");
 
         MainMenu mainMenu = new MainMenu(menuList, bookList);
 
@@ -56,15 +55,21 @@ public class MainMenuTest {
 
     @Test
     public void shouldDisplayInvalidMessageWhenUserEntersInvalidOption() {
-        Display bookList = mock(Display.class);
-        ArrayList<String> menuList = new ArrayList<String>();
-
-        menuList.add("1.ListOfBooks");
 
         MainMenu mainMenu = new MainMenu(menuList, bookList);
 
         mainMenu.selectOption("4");
 
         verify(bookList, times(1)).displayInvalidCommand();
+    }
+
+    @Test
+    public void shouldExitFromTheMenuWhenUserEntersQuitOption() {
+
+        MainMenu mainMenu = new MainMenu(menuList, bookList);
+
+        mainMenu.selectOption("Quit");
+
+        verify(bookList, times(1)).exitMenu();
     }
 }

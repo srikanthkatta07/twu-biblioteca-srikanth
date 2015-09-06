@@ -20,6 +20,8 @@ public class MainMenu {
     public void selectOption(String option) {
         if (option.equals("1"))
             bookList.displayBookList();
+        else if (option.equals("Quit"))
+            bookList.exitMenu();
         else
             bookList.displayInvalidCommand();
     }
