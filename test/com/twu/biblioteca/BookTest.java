@@ -19,4 +19,11 @@ public class BookTest {
 
         assertEquals(true, book.equalTo("Twostates"));
     }
+
+    @Test
+    public void shouldNotEqualToOtherBookIfBothHaveDifferentNames() {
+        Book book = new Book("Twostates", "chetan", 2008);
+
+        assertEquals(false, book.equalTo("abcd"));
+    }
 }

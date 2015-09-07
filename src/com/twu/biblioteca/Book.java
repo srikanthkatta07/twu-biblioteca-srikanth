@@ -19,6 +19,8 @@ public class Book {
     }
 
     public boolean equalTo(String bookName) {
-        return true;
+        if (this.name.equals(bookName))
+            return true;
+        return false;
     }
 }
