@@ -60,4 +60,14 @@ public class DisplayTest {
 
         assertEquals("FirstBook FirstAuthor 2008\nSecondBook SecondAuthor 2009\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplayInvalidCommandWhenUserEntersInvalidOption() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Display display=new Display(listOfBooks);
+
+        display.displayInvalidCommand();
+
+        assertEquals("Select an valid option!\n",outContent.toString());
+    }
 }

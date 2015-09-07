@@ -1,6 +1,8 @@
 //To display list of commands and other messages
 package com.twu.biblioteca;
 
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import java.util.ArrayList;
 
 public class Display {
@@ -17,7 +19,9 @@ public class Display {
     }
 
     public void displayInvalidCommand() {
-        System.out.println("Select a valid option!");
+        System.out.println("Select an valid option!");
+
+
     }
 
     public void displayMessage(String welcomeMessage) {
@@ -25,6 +29,6 @@ public class Display {
     }
 
     public void exitMenu() {
-        System.exit(0);
+
     }
 }
