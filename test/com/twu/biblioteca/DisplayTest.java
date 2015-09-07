@@ -24,8 +24,10 @@ public class DisplayTest {
 
     @Test
     public void shouldDisplayWelcomeMessage() {
+
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Display welcomeMessage = new Display(listOfBooks);
+        Library library = new Library(listOfBooks);
+        Display welcomeMessage = new Display(library);
 
         welcomeMessage.displayMessage("Welcome to Biblioteca");
 
@@ -34,12 +36,14 @@ public class DisplayTest {
 
     @Test
     public void shouldDisplayBookWithAuthorAndYearOfPublishWhenOnlyOneBookIsAvailable() {
+
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book book = new Book("Twostates", "chetan", 2008);
 
         listOfBooks.add(book);
 
-        Display display = new Display(listOfBooks);
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
 
         display.displayBookList();
 
@@ -48,6 +52,7 @@ public class DisplayTest {
 
     @Test
     public void shouldDisplayListOfBooksWithAuthorAndYearOfPublishWhenMoreThanOneBookIsAvailable() {
+
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book firstBook = new Book("FirstBook", "FirstAuthor", 2008);
         Book secondBook = new Book("SecondBook", "SecondAuthor", 2009);
@@ -55,7 +60,8 @@ public class DisplayTest {
         listOfBooks.add(firstBook);
         listOfBooks.add(secondBook);
 
-        Display display = new Display(listOfBooks);
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
 
         display.displayBookList();
 
@@ -64,8 +70,10 @@ public class DisplayTest {
 
     @Test
     public void shouldDisplayInvalidCommandWhenUserEntersInvalidOption() {
+
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Display display = new Display(listOfBooks);
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
 
         display.displayInvalidCommand();
 

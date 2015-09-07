@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 public class BibliotecaApplication {
 
-    private ArrayList<Book> listOfBooks;
+    private Library library;
     private ArrayList<String> menuList;
 
     public static void main(String args[]) {
         BibliotecaApplication application = new BibliotecaApplication();
-        LibrarySetUp libraySetUp = new LibrarySetUp(application.menuList, application.listOfBooks);
-        application.librarySetUp(libraySetUp);
-        Display display = new Display(application.listOfBooks);
+        application.LibraySetUp();
+        Display display = new Display(application.library);
         MainMenu mainMenu = new MainMenu(application.menuList, display);
         display.displayMessage("Welcome to Biblioteca");
         mainMenu.showMenuList();
@@ -25,8 +24,14 @@ public class BibliotecaApplication {
         }
     }
 
-    public void librarySetUp(LibrarySetUp librarySetUp) {
-
-        librarySetUp.setUp();
+    private void LibraySetUp() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book book1 = new Book("Twostates", "chetan", 2008);
+        Book book2 = new Book("Wingoffire", "APJ", 2007);
+        listOfBooks.add(book1);
+        listOfBooks.add(book2);
+        library = new Library(listOfBooks);
+        menuList = new ArrayList<String>();
+        menuList.add("1.List of books");
     }
 }

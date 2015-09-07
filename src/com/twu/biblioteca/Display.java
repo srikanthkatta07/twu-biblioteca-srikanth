@@ -5,15 +5,15 @@ import java.util.ArrayList;
 
 public class Display {
 
-    private ArrayList<Book> listOfBooks;
+    private Library library;
 
-    public Display(ArrayList<Book> listOfBooks) {
-        this.listOfBooks = listOfBooks;
+    public Display(Library library) {
+        this.library = library;
 
     }
 
     public void displayBookList() {
-        for (Book book : listOfBooks)
+        for (Book book : library.getListOfBooks())
             System.out.println(book.getDetails());
     }
 
