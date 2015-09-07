@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class DisplayTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -64,10 +65,10 @@ public class DisplayTest {
     @Test
     public void shouldDisplayInvalidCommandWhenUserEntersInvalidOption() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Display display=new Display(listOfBooks);
+        Display display = new Display(listOfBooks);
 
         display.displayInvalidCommand();
 
-        assertEquals("Select an valid option!\n",outContent.toString());
+        assertEquals("Select an valid option!\n", outContent.toString());
     }
 }

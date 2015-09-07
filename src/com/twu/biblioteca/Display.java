@@ -1,11 +1,10 @@
-//To display list of commands and other messages
+//To display all the messages to the user
 package com.twu.biblioteca;
-
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 
 import java.util.ArrayList;
 
 public class Display {
+
     private ArrayList<Book> listOfBooks;
 
     public Display(ArrayList<Book> listOfBooks) {
@@ -29,6 +28,7 @@ public class Display {
     }
 
     public void exitMenu() {
-
+        System.exit(0);
     }
+
 }

@@ -4,12 +4,13 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class MainMenu {
-    private Display bookList;
-    ArrayList<String> menuList;
 
-    public MainMenu(ArrayList<String> menuList, Display bookList) {
+    private Display display;
+    private ArrayList<String> menuList;
+
+    public MainMenu(ArrayList<String> menuList, Display display) {
         this.menuList = menuList;
-        this.bookList = bookList;
+        this.display = display;
     }
 
     public void showMenuList() {
@@ -19,10 +20,10 @@ public class MainMenu {
 
     public void selectOption(String option) {
         if (option.equals("1"))
-            bookList.displayBookList();
+            display.displayBookList();
         else if (option.equals("Quit"))
-            bookList.exitMenu();
+            display.exitMenu();
         else
-            bookList.displayInvalidCommand();
+            display.displayInvalidCommand();
     }
 }
