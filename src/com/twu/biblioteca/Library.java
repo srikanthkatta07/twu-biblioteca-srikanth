@@ -17,9 +17,9 @@ public class Library {
 
     public void checkedOut(String bookName) {
         Iterator<Book> iterator = listOfBooks.iterator();
-        Book book=iterator.next();
-        while(iterator.hasNext()) {
-            if(book.equalTo(bookName)) {
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
+            if (book.equalTo(bookName)) {
                 iterator.remove();
             }
         }
