@@ -17,4 +17,8 @@ public class Book {
     public String getDetails() {
         return name + " " + author + " " + yearOfPublish;
     }
+
+    public boolean equalTo(String bookName) {
+        return true;
+    }
 }

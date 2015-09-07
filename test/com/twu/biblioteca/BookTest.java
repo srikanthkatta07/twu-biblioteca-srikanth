@@ -12,4 +12,11 @@ public class BookTest {
 
         assertEquals("Twostates chetan 2008", book.getDetails());
     }
+
+    @Test
+    public void shouldEqualToOtherBookIfBothHaveEqualNames() {
+        Book book = new Book("Twostates", "chetan", 2008);
+
+        assertEquals(true, book.equalTo("Twostates"));
+    }
 }

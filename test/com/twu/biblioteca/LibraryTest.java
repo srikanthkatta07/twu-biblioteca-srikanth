@@ -19,4 +19,16 @@ public class LibraryTest {
 
         assertEquals(listOfBooks, library.getListOfBooks());
     }
+
+    @Test
+        public void shouldNotRemoveTheBookFromListOfBooksIfTheBookNamesAreNotSame() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book book = new Book("Twostates", "chetan", 2008);
+
+        listOfBooks.add(book);
+
+        Library library = new Library(listOfBooks);
+
+        library.checkedOut("abcd");
+    }
 }
