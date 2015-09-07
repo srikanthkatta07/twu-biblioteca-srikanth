@@ -21,7 +21,7 @@ public class LibraryTest {
     }
 
     @Test
-        public void shouldNotRemoveTheBookFromListOfBooksIfTheBookNamesAreNotSame() {
+    public void shouldNotRemoveTheBookFromListOfBooksIfTheBookNamesAreNotSame() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book book = new Book("Twostates", "chetan", 2008);
 
@@ -30,5 +30,7 @@ public class LibraryTest {
         Library library = new Library(listOfBooks);
 
         library.checkedOut("abcd");
+
+        assertEquals(1, listOfBooks.size());
     }
 }
