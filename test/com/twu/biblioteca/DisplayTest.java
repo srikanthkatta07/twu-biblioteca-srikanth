@@ -103,4 +103,16 @@ public class DisplayTest {
 
         assertEquals("That book is not available\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplayMessageWhenUserReturnedTheValidBook() {
+
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
+
+        display.displaySuccessfulReturn();
+
+        assertEquals("Thank you for returning the book\n", outContent.toString());
+    }
 }
