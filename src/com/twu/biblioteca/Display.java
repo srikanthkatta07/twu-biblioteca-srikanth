@@ -31,4 +31,7 @@ public class Display {
         System.exit(0);
     }
 
+    public void displaySuccessfulCheckOut() {
+        System.out.println("Thank you! Enjoy the book");
+    }
 }

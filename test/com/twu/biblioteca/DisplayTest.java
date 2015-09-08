@@ -79,4 +79,16 @@ public class DisplayTest {
 
         assertEquals("Select an valid option!\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplaySuccessfulCheckoutMessageToTheUser() {
+
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
+
+        display.displaySuccessfulCheckOut();
+
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+    }
 }
