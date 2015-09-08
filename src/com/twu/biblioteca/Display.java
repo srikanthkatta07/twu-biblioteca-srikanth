@@ -40,4 +40,8 @@ public class Display {
     public void displaySuccessfulReturn() {
         System.out.println("Thank you for returning the book");
     }
+
+    public void displayUnSuccessfulReturn() {
+        System.out.println("That is not a valid book to return");
+    }
 }

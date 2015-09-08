@@ -115,4 +115,16 @@ public class DisplayTest {
 
         assertEquals("Thank you for returning the book\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplayMessageWhenUserReturnedTheUnValidBook() {
+
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
+
+        display.displayUnSuccessfulReturn();
+
+        assertEquals("That is not a valid book to return\n", outContent.toString());
+    }
 }
