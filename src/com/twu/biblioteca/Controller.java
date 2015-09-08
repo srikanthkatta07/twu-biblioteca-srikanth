@@ -1,16 +1,19 @@
 package com.twu.biblioteca;
+
 public class Controller {
 
 
     private Display display;
 
     public Controller(Display display) {
-        this.display=display;
+        this.display = display;
     }
 
     public void delegate(String option) {
-        if(option.equals("1"))
+        if (option.equals("1"))
             display.displayBookList();
+        else
+            display.displayInvalidCommand();
 
     }
 }

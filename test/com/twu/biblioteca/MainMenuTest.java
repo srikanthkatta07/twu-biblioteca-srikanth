@@ -69,7 +69,7 @@ public class MainMenuTest {
     @Test
     public void shouldExitFromTheMenuWhenUserEntersQuitOption() {
 
-        MainMenu mainMenu = new MainMenu(menuList, display,consoleInput);
+        MainMenu mainMenu = new MainMenu(menuList, display, consoleInput);
 
         mainMenu.selectOption("Quit");
 
