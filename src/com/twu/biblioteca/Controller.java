@@ -16,18 +16,19 @@ public class Controller {
     public void delegate(String option) {
         if (option.equals("1"))
             display.displayBookList();
-        else if (option.equals("2")) {
-            if(library.checkedOut(consoleInput.takeInput())) {
-                display.displaySuccessfulCheckOut();
-            }
-            else {
-                display.displayUnSuccessfulCheckOut();
-            }
-        } else if (option.equals("Quit"))
+        else if (option.equals("2"))
+            checkOut();
+        else if (option.equals("Quit"))
             display.exitMenu();
-
         else
             display.displayInvalidCommand();
+    }
 
+    private void checkOut() {
+        if (library.checkedOut(consoleInput.takeInput())) {
+            display.displaySuccessfulCheckOut();
+        } else {
+            display.displayUnSuccessfulCheckOut();
+        }
     }
 }
