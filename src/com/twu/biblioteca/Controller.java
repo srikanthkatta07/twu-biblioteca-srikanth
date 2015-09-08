@@ -17,7 +17,12 @@ public class Controller {
         if (option.equals("1"))
             display.displayBookList();
         else if (option.equals("2")) {
-            library.checkedOut(consoleInput.takeInput());
+            if(library.checkedOut(consoleInput.takeInput())) {
+                display.displaySuccessfulCheckOut();
+            }
+            else {
+                display.displayUnSuccessfulCheckOut();
+            }
         } else if (option.equals("Quit"))
             display.exitMenu();
 

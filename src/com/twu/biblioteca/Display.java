@@ -34,4 +34,8 @@ public class Display {
     public void displaySuccessfulCheckOut() {
         System.out.println("Thank you! Enjoy the book");
     }
+
+    public void displayUnSuccessfulCheckOut() {
+        System.out.println("That book is not available");
+    }
 }

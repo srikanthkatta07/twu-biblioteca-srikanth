@@ -91,4 +91,16 @@ public class DisplayTest {
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
+
+    @Test
+    public void shouldDisplayUnSuccessfulCheckoutMessageToTheUser() {
+
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
+
+        display.displayUnSuccessfulCheckOut();
+
+        assertEquals("That book is not available\n", outContent.toString());
+    }
 }
