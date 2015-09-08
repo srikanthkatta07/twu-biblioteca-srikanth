@@ -15,13 +15,15 @@ public class Library {
         return listOfBooks;
     }
 
-    public void checkedOut(String bookName) {
+    public boolean checkedOut(String bookName) {
         Iterator<Book> iterator = listOfBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
             if (book.equalTo(bookName)) {
                 iterator.remove();
+                return true;
             }
         }
+        return false;
     }
 }

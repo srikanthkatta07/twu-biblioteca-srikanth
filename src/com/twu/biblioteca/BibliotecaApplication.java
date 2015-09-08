@@ -13,7 +13,7 @@ public class BibliotecaApplication {
         application.LibraySetUp();
         ConsoleInput consoleInput = new ConsoleInput();
         Display display = new Display(application.library);
-        Controller controller = new Controller(display,consoleInput,application.library);
+        Controller controller = new Controller(display, consoleInput, application.library);
         MainMenu mainMenu = new MainMenu(application.menuList);
         display.displayMessage("Welcome to Biblioteca");
         mainMenu.showMenuList();

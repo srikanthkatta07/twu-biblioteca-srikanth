@@ -23,7 +23,7 @@ public class ControllerTest {
     @Test
     public void shouldDelgateToTheDisplayingBookListIfUserEnterOptionOne() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput,library);
+        Controller controller = new Controller(display, consoleInput, library);
 
         controller.delegate("1");
 
@@ -33,7 +33,7 @@ public class ControllerTest {
     @Test
     public void shouldDisplayInvalidMessageWhenUserEntersInvalidOption() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput,library);
+        Controller controller = new Controller(display, consoleInput, library);
 
         controller.delegate("abcd");
 
@@ -43,7 +43,7 @@ public class ControllerTest {
     @Test
     public void shouldExitFromTheMenuWhenUserEntersQuitOption() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput,library);
+        Controller controller = new Controller(display, consoleInput, library);
 
         controller.delegate("Quit");
 
@@ -54,7 +54,7 @@ public class ControllerTest {
     public void shouldTakeTheNameOfTheBookFromTheUserWhenUserEntersOptionTwo() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput,library);
+        Controller controller = new Controller(display, consoleInput, library);
 
         controller.delegate("2");
 
