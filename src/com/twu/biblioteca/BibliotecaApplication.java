@@ -12,15 +12,14 @@ public class BibliotecaApplication {
     public static void main(String args[]) {
         BibliotecaApplication application = new BibliotecaApplication();
         application.LibraySetUp();
+        ConsoleInput consoleInput = new ConsoleInput();
         Display display = new Display(application.library);
-        MainMenu mainMenu = new MainMenu(application.menuList, display);
+        MainMenu mainMenu = new MainMenu(application.menuList, display,consoleInput);
         display.displayMessage("Welcome to Biblioteca");
         mainMenu.showMenuList();
         String option;
         while (true) {
-            Scanner input = new Scanner(System.in);
-            option = input.nextLine();
-            mainMenu.selectOption(option);
+            mainMenu.selectOption(consoleInput.takeInput());
         }
     }
 

@@ -7,10 +7,12 @@ public class MainMenu {
 
     private Display display;
     private ArrayList<String> menuList;
+    private ConsoleInput consoleInput;
 
-    public MainMenu(ArrayList<String> menuList, Display display) {
+    public MainMenu(ArrayList<String> menuList, Display display, ConsoleInput consoleInput) {
         this.menuList = menuList;
         this.display = display;
+        this.consoleInput = consoleInput;
     }
 
     public void showMenuList() {

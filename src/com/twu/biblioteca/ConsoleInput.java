@@ -7,8 +7,8 @@ public class ConsoleInput {
     String input;
 
     public String takeInput() {
-        Scanner scanner=new Scanner(System.in);
-       return scanner.nextLine();
-
+        Scanner scanner = new Scanner(System.in);
+        input = scanner.nextLine();
+        return input;
     }
 }

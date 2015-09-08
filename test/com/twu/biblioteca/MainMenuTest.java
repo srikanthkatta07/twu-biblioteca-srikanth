@@ -16,6 +16,7 @@ public class MainMenuTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private ArrayList<String> menuList;
     private Display bookList;
+    private ConsoleInput consoleInput;
 
     @Before
     public void setUpStreams() {
@@ -30,6 +31,7 @@ public class MainMenuTest {
     @Before
     public void intialSetUp() {
         menuList = new ArrayList<String>();
+        consoleInput=new ConsoleInput();
         bookList = mock(Display.class);
         menuList.add("1.ListOfBooks");
     }
@@ -37,7 +39,7 @@ public class MainMenuTest {
     @Test
     public void shouldDisplayListOfAvailableOptionsToTheUser() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList);
+        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
 
         mainMenu.showMenuList();
 
@@ -47,7 +49,7 @@ public class MainMenuTest {
     @Test
     public void shouldDisplayListOfBooksWhenUserSelectedOptioOne() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList);
+        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
 
         mainMenu.selectOption("1");
 
@@ -57,7 +59,7 @@ public class MainMenuTest {
     @Test
     public void shouldDisplayInvalidMessageWhenUserEntersInvalidOption() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList);
+        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
 
         mainMenu.selectOption("4");
 
@@ -67,7 +69,7 @@ public class MainMenuTest {
     @Test
     public void shouldExitFromTheMenuWhenUserEntersQuitOption() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList);
+        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
 
         mainMenu.selectOption("Quit");
 
