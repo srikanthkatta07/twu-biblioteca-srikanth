@@ -15,7 +15,7 @@ public class MainMenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private ArrayList<String> menuList;
-    private Display bookList;
+    private Display display;
     private ConsoleInput consoleInput;
 
     @Before
@@ -31,15 +31,15 @@ public class MainMenuTest {
     @Before
     public void intialSetUp() {
         menuList = new ArrayList<String>();
-        consoleInput=new ConsoleInput();
-        bookList = mock(Display.class);
+        consoleInput=mock(ConsoleInput.class);
+        display = mock(Display.class);
         menuList.add("1.ListOfBooks");
     }
 
     @Test
     public void shouldDisplayListOfAvailableOptionsToTheUser() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
+        MainMenu mainMenu = new MainMenu(menuList, display,consoleInput);
 
         mainMenu.showMenuList();
 
@@ -49,30 +49,30 @@ public class MainMenuTest {
     @Test
     public void shouldDisplayListOfBooksWhenUserSelectedOptioOne() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
+        MainMenu mainMenu = new MainMenu(menuList, display,consoleInput);
 
         mainMenu.selectOption("1");
 
-        verify(bookList, times(1)).displayBookList();
+        verify(display, times(1)).displayBookList();
     }
 
     @Test
     public void shouldDisplayInvalidMessageWhenUserEntersInvalidOption() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
+        MainMenu mainMenu = new MainMenu(menuList, display,consoleInput);
 
         mainMenu.selectOption("4");
 
-        verify(bookList, times(1)).displayInvalidCommand();
+        verify(display, times(1)).displayInvalidCommand();
     }
 
     @Test
     public void shouldExitFromTheMenuWhenUserEntersQuitOption() {
 
-        MainMenu mainMenu = new MainMenu(menuList, bookList,consoleInput);
+        MainMenu mainMenu = new MainMenu(menuList, display,consoleInput);
 
         mainMenu.selectOption("Quit");
 
-        verify(bookList, times(1)).exitMenu();
+        verify(display, times(1)).exitMenu();
     }
 }

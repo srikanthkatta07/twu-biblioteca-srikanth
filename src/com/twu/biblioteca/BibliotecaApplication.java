@@ -2,7 +2,6 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class BibliotecaApplication {
 
@@ -14,7 +13,7 @@ public class BibliotecaApplication {
         application.LibraySetUp();
         ConsoleInput consoleInput = new ConsoleInput();
         Display display = new Display(application.library);
-        MainMenu mainMenu = new MainMenu(application.menuList, display,consoleInput);
+        MainMenu mainMenu = new MainMenu(application.menuList, display, consoleInput);
         display.displayMessage("Welcome to Biblioteca");
         mainMenu.showMenuList();
         String option;
