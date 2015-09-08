@@ -45,13 +45,15 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldTakeValidBookFromTheUserAndAddToTheLibrary() {
+    public void shouldTakeValidBookNameFromTheUserAndAddToTheLibrary() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book book = new Book("Twostates", "chetan", 2008);
 
         listOfBooks.add(book);
 
         Library library = new Library(listOfBooks);
+
+        library.checkedOut("Twostates");
 
         assertEquals(true, library.checkedIn("Twostates"));
     }
