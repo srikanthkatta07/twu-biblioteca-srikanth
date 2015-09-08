@@ -12,6 +12,8 @@ public class Controller {
     public void delegate(String option) {
         if (option.equals("1"))
             display.displayBookList();
+        else if(option.equals("Quit"))
+            display.exitMenu();
         else
             display.displayInvalidCommand();
 

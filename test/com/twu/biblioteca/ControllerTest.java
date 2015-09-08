@@ -26,4 +26,14 @@ public class ControllerTest {
         verify(display, times(1)).displayInvalidCommand();
     }
 
+    @Test
+    public void shouldExitFromTheMenuWhenUserEntersQuitOption() {
+        Display display = mock(Display.class);
+        Controller controller = new Controller(display);
+
+        controller.delegate("Quit");
+
+        verify(display, times(1)).exitMenu();
+    }
+
 }
