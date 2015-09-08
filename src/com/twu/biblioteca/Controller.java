@@ -25,10 +25,9 @@ public class Controller {
     }
 
     private void checkOut() {
-        if (library.checkedOut(consoleInput.takeInput())) {
+        if (library.checkedOut(consoleInput.takeInput()))
             display.displaySuccessfulCheckOut();
-        } else {
+        else
             display.displayUnSuccessfulCheckOut();
-        }
     }
 }

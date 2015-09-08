@@ -31,6 +31,7 @@ public class BibliotecaApplication {
         library = new Library(listOfBooks);
         menuList = new ArrayList<String>();
         menuList.add("1.List of books");
-        menuList.add("2.Checkout books");
+        menuList.add("2.Checkedout books");
+        menuList.add("3.Checkedin books");
     }
 }

@@ -18,7 +18,7 @@ public class Book {
         return name + " " + author + " " + yearOfPublish;
     }
 
-    public boolean equalTo(String bookName) {
+    public boolean findByBookName(String bookName) {
         if (this.name.equals(bookName))
             return true;
         return false;

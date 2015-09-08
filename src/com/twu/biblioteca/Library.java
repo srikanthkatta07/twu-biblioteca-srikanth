@@ -19,11 +19,15 @@ public class Library {
         Iterator<Book> iterator = listOfBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
-            if (book.equalTo(bookName)) {
+            if (book.findByBookName(bookName)) {
                 iterator.remove();
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean checkedIn(String bookName) {
+        return true;
     }
 }

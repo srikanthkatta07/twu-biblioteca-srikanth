@@ -17,13 +17,13 @@ public class BookTest {
     public void shouldEqualToOtherBookIfBothHaveEqualNames() {
         Book book = new Book("Twostates", "chetan", 2008);
 
-        assertEquals(true, book.equalTo("Twostates"));
+        assertEquals(true, book.findByBookName("Twostates"));
     }
 
     @Test
     public void shouldNotEqualToOtherBookIfBothHaveDifferentNames() {
         Book book = new Book("Twostates", "chetan", 2008);
 
-        assertEquals(false, book.equalTo("abcd"));
+        assertEquals(false, book.findByBookName("abcd"));
     }
 }
