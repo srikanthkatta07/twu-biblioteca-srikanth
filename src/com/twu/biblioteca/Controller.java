@@ -18,6 +18,8 @@ public class Controller {
             display.displayBookList();
         else if (option.equals("2"))
             checkOut();
+        else if (option.equals("3"))
+            checkIn();
         else if (option.equals("Quit"))
             display.exitMenu();
         else
@@ -29,5 +31,12 @@ public class Controller {
             display.displaySuccessfulCheckOut();
         else
             display.displayUnSuccessfulCheckOut();
+    }
+
+    private void checkIn() {
+        if (library.checkedIn(consoleInput.takeInput()))
+            display.displaySuccessfulReturn();
+        else
+            display.displayUnSuccessfulReturn();
     }
 }

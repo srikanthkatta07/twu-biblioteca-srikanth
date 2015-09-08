@@ -51,12 +51,23 @@ public class ControllerTest {
     }
 
     @Test
-    public void shouldTakeTheNameOfTheBookFromTheUserWhenUserEntersOptionTwo() {
+    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedOutWhenUserEntersOptionTwo() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
         controller.delegate("2");
+
+        verify(consoleInput, times(1)).takeInput();
+    }
+
+    @Test
+    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedInWhenUserEnterOptionThree() {
+        ConsoleInput consoleInput = mock(ConsoleInput.class);
+        Display display = mock(Display.class);
+        Controller controller = new Controller(display, consoleInput, library);
+
+        controller.delegate("3");
 
         verify(consoleInput, times(1)).takeInput();
     }
