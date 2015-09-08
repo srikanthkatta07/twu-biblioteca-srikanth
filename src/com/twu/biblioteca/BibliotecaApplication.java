@@ -13,12 +13,12 @@ public class BibliotecaApplication {
         application.LibraySetUp();
         ConsoleInput consoleInput = new ConsoleInput();
         Display display = new Display(application.library);
-        MainMenu mainMenu = new MainMenu(application.menuList, display, consoleInput);
+        Controller controller = new Controller(display);
+        MainMenu mainMenu = new MainMenu(application.menuList);
         display.displayMessage("Welcome to Biblioteca");
         mainMenu.showMenuList();
-        String option;
         while (true) {
-            mainMenu.selectOption(consoleInput.takeInput());
+            controller.delegate(consoleInput.takeInput());
         }
     }
 
