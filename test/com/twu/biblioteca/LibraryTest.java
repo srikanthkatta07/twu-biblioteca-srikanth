@@ -17,7 +17,7 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks);
 
-        assertEquals(listOfBooks, library.getListOfBooks());
+        assertEquals(listOfBooks, library.getAvailableBooks());
     }
 
     @Test
@@ -56,5 +56,19 @@ public class LibraryTest {
         library.checkedOut("Twostates");
 
         assertEquals(true, library.checkedIn("Twostates"));
+    }
+
+    @Test
+    public void shouldNotAddToTheLibraryIfTheGivenBookNameIsNotValid() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book book = new Book("Twostates", "chetan", 2008);
+
+        listOfBooks.add(book);
+
+        Library library = new Library(listOfBooks);
+
+        library.checkedOut("Twostates");
+
+        assertEquals(false, library.checkedIn("abcd"));
     }
 }

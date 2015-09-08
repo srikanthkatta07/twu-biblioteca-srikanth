@@ -5,21 +5,23 @@ import java.util.Iterator;
 
 public class Library {
 
-    private ArrayList<Book> listOfBooks;
+    private ArrayList<Book> availableBooks;
+    private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
 
     public Library(ArrayList<Book> listOfBooks) {
-        this.listOfBooks = listOfBooks;
+        this.availableBooks = listOfBooks;
     }
 
-    public ArrayList<Book> getListOfBooks() {
-        return listOfBooks;
+    public ArrayList<Book> getAvailableBooks() {
+        return availableBooks;
     }
 
     public boolean checkedOut(String bookName) {
-        Iterator<Book> iterator = listOfBooks.iterator();
+        Iterator<Book> iterator = availableBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
             if (book.findByBookName(bookName)) {
+                checkedOutBooks.add(book);
                 iterator.remove();
                 return true;
             }
@@ -28,6 +30,15 @@ public class Library {
     }
 
     public boolean checkedIn(String bookName) {
-        return true;
+        Iterator<Book> iterator = checkedOutBooks.iterator();
+        while (iterator.hasNext()) {
+            Book book = iterator.next();
+            if (book.findByBookName(bookName)) {
+                availableBooks.add(book);
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,8 +1,6 @@
 //To display all the messages to the user
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-
 public class Display {
 
     private Library library;
@@ -13,7 +11,7 @@ public class Display {
     }
 
     public void displayBookList() {
-        for (Book book : library.getListOfBooks())
+        for (Book book : library.getAvailableBooks())
             System.out.println(book.getDetails());
     }
 
