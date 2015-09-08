@@ -1,15 +1,29 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
 public class ControllerTest {
 
+    private ConsoleInput consoleInput;
+    private Library library;
+    private ArrayList<Book> listOfBooks;
+
+    @Before
+    public void setUp() {
+        consoleInput = new ConsoleInput();
+        listOfBooks = new ArrayList<Book>();
+        library = new Library(listOfBooks);
+    }
+
     @Test
     public void shouldDelgateToTheDisplayingBookListIfUserEnterOptionOne() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display);
+        Controller controller = new Controller(display, consoleInput,library);
 
         controller.delegate("1");
 
@@ -19,7 +33,7 @@ public class ControllerTest {
     @Test
     public void shouldDisplayInvalidMessageWhenUserEntersInvalidOption() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display);
+        Controller controller = new Controller(display, consoleInput,library);
 
         controller.delegate("abcd");
 
@@ -29,11 +43,22 @@ public class ControllerTest {
     @Test
     public void shouldExitFromTheMenuWhenUserEntersQuitOption() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display);
+        Controller controller = new Controller(display, consoleInput,library);
 
         controller.delegate("Quit");
 
         verify(display, times(1)).exitMenu();
+    }
+
+    @Test
+    public void shouldTakeTheNameOfTheBookFromTheUserWhenUserEntersOptionTwo() {
+        ConsoleInput consoleInput = mock(ConsoleInput.class);
+        Display display = mock(Display.class);
+        Controller controller = new Controller(display, consoleInput,library);
+
+        controller.delegate("2");
+
+        verify(consoleInput, times(1)).takeInput();
     }
 
 }
