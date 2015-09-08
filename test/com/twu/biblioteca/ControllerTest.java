@@ -62,7 +62,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedInWhenUserEnterOptionThree() {
+    public void shouldTakeTheNameOfTheBookFromTheUserT0WhenUserEnterOptionThree() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);

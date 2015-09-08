@@ -15,7 +15,8 @@ public class Book {
     }
 
     public String getDetails() {
-        return name + " " + author + " " + yearOfPublish;
+        String format = String.format("%-20S%-20S%-20S",name,author,yearOfPublish);
+        return format;
     }
 
     public boolean findByBookName(String bookName) {

@@ -24,8 +24,8 @@ public class BibliotecaApplication {
 
     private void LibraySetUp() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Book book1 = new Book("Twostates", "chetan", 2008);
-        Book book2 = new Book("Wingoffire", "APJ", 2007);
+        Book book1 = new Book("TWOSTATES", "CHETAN", 2008);
+        Book book2 = new Book("WINGSOFFIRE", "APJ", 2007);
         listOfBooks.add(book1);
         listOfBooks.add(book2);
         library = new Library(listOfBooks);
