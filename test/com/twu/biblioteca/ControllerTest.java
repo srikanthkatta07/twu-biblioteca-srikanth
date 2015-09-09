@@ -45,7 +45,7 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("Quit");
+        controller.delegate("4");
 
         verify(display, times(1)).exitMenu();
     }
@@ -62,7 +62,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void shouldTakeTheNameOfTheBookFromTheUserT0WhenUserEnterOptionThree() {
+    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedInWhenUserEnterOptionThree() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);

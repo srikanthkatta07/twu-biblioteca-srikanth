@@ -10,7 +10,7 @@ public class BookTest {
     public void shouldGiveNameAuthorAndPublishYearOfTheGivenBook() {
         Book book = new Book("Twostates", "chetan", 2008);
 
-        String format = String.format("%-20S%-20S%-20S","TWOSTATES","CHETAN",2008);
+        String format = String.format("%-20S%-20S%-20S", "TWOSTATES", "CHETAN", 2008);
 
         assertEquals(format, book.getDetails());
     }

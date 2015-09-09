@@ -10,7 +10,7 @@ public class BibliotecaApplication {
 
     public static void main(String args[]) {
         BibliotecaApplication application = new BibliotecaApplication();
-        application.LibraySetUp();
+        application.librarySetUp();
         ConsoleInput consoleInput = new ConsoleInput();
         Display display = new Display(application.library);
         Controller controller = new Controller(display, consoleInput, application.library);
@@ -22,7 +22,7 @@ public class BibliotecaApplication {
         }
     }
 
-    private void LibraySetUp() {
+    public void librarySetUp() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         Book book1 = new Book("TWOSTATES", "CHETAN", 2008);
         Book book2 = new Book("WINGSOFFIRE", "APJ", 2007);
@@ -33,5 +33,6 @@ public class BibliotecaApplication {
         menuList.add("1.List of books");
         menuList.add("2.Checkedout books");
         menuList.add("3.Checkedin books");
+        menuList.add("4.Quit");
     }
 }

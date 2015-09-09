@@ -38,7 +38,7 @@ public class DisplayTest {
     public void shouldDisplayBookWithAuthorAndYearOfPublishWhenOnlyOneBookIsAvailable() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Book book = new Book("Twostates", "chetan", 2008);
+        Book book = new Book("TWOSTATES", "CHETAN", 2008);
 
         listOfBooks.add(book);
 
@@ -47,15 +47,17 @@ public class DisplayTest {
 
         display.displayBookList();
 
-        assertEquals("Twostates chetan 2008\n", outContent.toString());
+        String format = String.format("%-20S%-20S%-20S", "TWOSTATES", "CHETAN", 2008);
+
+        assertEquals(format + "\n", outContent.toString());
     }
 
     @Test
     public void shouldDisplayListOfBooksWithAuthorAndYearOfPublishWhenMoreThanOneBookIsAvailable() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Book firstBook = new Book("FirstBook", "FirstAuthor", 2008);
-        Book secondBook = new Book("SecondBook", "SecondAuthor", 2009);
+        Book firstBook = new Book("FIRSTBOOK", "FIRSTAUTHOR", 2008);
+        Book secondBook = new Book("SECONDBOOK", "SECONDAUTHOR", 2009);
 
         listOfBooks.add(firstBook);
         listOfBooks.add(secondBook);
@@ -65,7 +67,10 @@ public class DisplayTest {
 
         display.displayBookList();
 
-        assertEquals("FirstBook FirstAuthor 2008\nSecondBook SecondAuthor 2009\n", outContent.toString());
+        String book1 = String.format("%-20S%-20S%-20S", "FIRSTBOOK", "FIRSTAUTHOR", 2008);
+        String book2 = String.format("%-20S%-20S%-20S", "SECONDBOOK", "SECONDAUTHOR", 2009);
+
+        assertEquals(book1+"\n"+book2+"\n", outContent.toString());
     }
 
     @Test

@@ -20,7 +20,7 @@ public class Controller {
             checkOut();
         else if (option.equals("3"))
             checkIn();
-        else if (option.equals("Quit"))
+        else if (option.equals("4"))
             display.exitMenu();
         else
             display.displayInvalidCommand();
