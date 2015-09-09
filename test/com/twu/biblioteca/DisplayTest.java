@@ -2,6 +2,7 @@
 package com.twu.biblioteca;
 
 import org.junit.*;
+import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import static org.mockito.Mockito.*;
 
 public class DisplayTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Rule
+    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
     @Before
     public void setUpStreams() {
@@ -70,7 +74,7 @@ public class DisplayTest {
         String book1 = String.format("%-20S%-20S%-20S", "FIRSTBOOK", "FIRSTAUTHOR", 2008);
         String book2 = String.format("%-20S%-20S%-20S", "SECONDBOOK", "SECONDAUTHOR", 2009);
 
-        assertEquals(book1+"\n"+book2+"\n", outContent.toString());
+        assertEquals(book1 + "\n" + book2 + "\n", outContent.toString());
     }
 
     @Test
@@ -132,4 +136,15 @@ public class DisplayTest {
 
         assertEquals("That is not a valid book to return\n", outContent.toString());
     }
+
+    @Test
+    public void shouldExit() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
+
+        exit.expectSystemExit();
+        display.exitMenu();
+    }
+
 }

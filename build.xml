@@ -13,6 +13,7 @@
             <classpath location="lib/hamcrest-library-1.3.jar"/>
             <classpath location="lib/junit-4.11.jar"/>
             <classpath location="lib/mockito-all-1.9.5.jar"/>
+            <classpath location="lib/system-rules-1.12.0.jar"/>
         </javac>
     </target>
 
@@ -28,6 +29,7 @@
                     <pathelement location="lib/hamcrest-library-1.3.jar"/>
                     <pathelement location="lib/junit-4.11.jar"/>
                     <pathelement location="lib/mockito-all-1.9.5.jar"/>
+                    <pathelement location="lib/system-rules-1.12.0.jar"/>
                     <pathelement location="out"/>
                 </classpath>
 
