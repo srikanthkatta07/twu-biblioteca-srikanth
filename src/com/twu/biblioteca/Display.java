@@ -11,6 +11,9 @@ public class Display {
     }
 
     public void displayBookList() {
+        System.out.println(String.format("----------------------------------------------------------------"));
+        System.out.println(String.format("%-20S%-20S%-20S", "NAME", "AUTHOR", "YEAR OF PUBLISH"));
+        System.out.println(String.format("----------------------------------------------------------------"));
         for (Book book : library.getAvailableBooks())
             System.out.println(book.getDetails());
     }

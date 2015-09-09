@@ -49,9 +49,13 @@ public class DisplayTest {
 
         display.displayBookList();
 
+        String headrLines = String.format("----------------------------------------------------------------");
+
+        String header = String.format("%-20S%-20S%-20S", "NAME", "AUTHOR", "YEAR OF PUBLISH");
+
         String format = String.format("%-20S%-20S%-20S", "TWOSTATES", "CHETAN", 2008);
 
-        assertEquals(format + "\n", outContent.toString());
+        assertEquals(headrLines + "\n" + header + "\n" + headrLines + "\n" + format + "\n", outContent.toString());
     }
 
     @Test
@@ -68,11 +72,12 @@ public class DisplayTest {
         Display display = new Display(library);
 
         display.displayBookList();
-
+        String headrLines = String.format("----------------------------------------------------------------");
+        String header = String.format("%-20S%-20S%-20S", "NAME", "AUTHOR", "YEAR OF PUBLISH");
         String book1 = String.format("%-20S%-20S%-20S", "FIRSTBOOK", "FIRSTAUTHOR", 2008);
         String book2 = String.format("%-20S%-20S%-20S", "SECONDBOOK", "SECONDAUTHOR", 2009);
 
-        assertEquals(book1 + "\n" + book2 + "\n", outContent.toString());
+        assertEquals(headrLines + "\n" + header + "\n" + headrLines + "\n" + book1 + "\n" + book2 + "\n", outContent.toString());
     }
 
     @Test
@@ -143,6 +148,27 @@ public class DisplayTest {
 
         exit.expectSystemExit();
         display.exitMenu();
+    }
+
+    @Test
+    public void displayTheHeaderToTheBookList() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book book = new Book("TWOSTATES", "CHETAN", 2008);
+
+        listOfBooks.add(book);
+
+        Library library = new Library(listOfBooks);
+        Display display = new Display(library);
+
+        display.displayBookList();
+
+        String headrLines = String.format("----------------------------------------------------------------");
+
+        String header = String.format("%-20S%-20S%-20S", "NAME", "AUTHOR", "YEAR OF PUBLISH");
+
+        String format = String.format("%-20S%-20S%-20S", "TWOSTATES", "CHETAN", 2008);
+
+        assertEquals(headrLines + "\n" + header + "\n" + headrLines + "\n" + format + "\n", outContent.toString());
     }
 
 }
