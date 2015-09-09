@@ -1,4 +1,3 @@
-//To display list of books
 package com.twu.biblioteca;
 
 import org.junit.*;
@@ -8,7 +7,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
 public class DisplayTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

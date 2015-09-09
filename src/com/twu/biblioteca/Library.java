@@ -1,3 +1,4 @@
+//It has books and it can be checked out and checked in
 package com.twu.biblioteca;
 
 import java.util.ArrayList;

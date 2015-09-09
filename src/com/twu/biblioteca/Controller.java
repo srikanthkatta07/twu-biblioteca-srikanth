@@ -1,3 +1,4 @@
+//It delegates the user choices
 package com.twu.biblioteca;
 
 public class Controller {
