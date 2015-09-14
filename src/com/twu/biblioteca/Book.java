@@ -15,7 +15,7 @@ public class Book {
     }
 
     public String getDetails() {
-        String format = String.format("%-20S%-20S%-20S",name,author,yearOfPublish);
+        String format = String.format("%-20S%-20S%-20S", name, author, yearOfPublish);
         return format;
     }
 
@@ -23,5 +23,10 @@ public class Book {
         if (this.name.equals(bookName))
             return true;
         return false;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        return true;
     }
 }

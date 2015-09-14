@@ -28,4 +28,12 @@ public class BookTest {
 
         assertEquals(false, book.findByBookName("abcd"));
     }
+
+    @Test
+    public void shouldEqualToOtherBookIfBothHaveSameBookDetails() {
+        Book firstBook = new Book("Twostates", "chetan", 2008);
+        Book secondBook = new Book("Twostates", "chetan", 2008);
+
+        assertEquals(firstBook, secondBook);
+    }
 }
