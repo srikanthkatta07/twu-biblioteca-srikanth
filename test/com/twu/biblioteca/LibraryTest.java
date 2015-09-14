@@ -71,4 +71,17 @@ public class LibraryTest {
 
         assertEquals(false, library.checkedIn("abcd"));
     }
+
+    @Test
+    public void shouldEqualsToAnotherLibraryIfBothHaveSameListOfAvailableBooks() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Book book = new Book("Twostates", "chetan", 2008);
+
+        listOfBooks.add(book);
+
+        Library library = new Library(listOfBooks);
+        Library anotherLibrary = new Library(listOfBooks);
+
+        assertEquals(anotherLibrary, library);
+    }
 }
