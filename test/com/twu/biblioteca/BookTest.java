@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class BookTest {
 
@@ -35,5 +36,13 @@ public class BookTest {
         Book secondBook = new Book("Twostates", "chetan", 2008);
 
         assertEquals(firstBook, secondBook);
+    }
+
+    @Test
+    public void shouldNotEqualToOtherBookIfBothHaveDifferentBookDetails() {
+        Book firstBook = new Book("Twostates", "chetan", 2008);
+        Book secondBook = new Book("Twostat", "chetan", 2008);
+
+        assertNotEquals(firstBook, secondBook);
     }
 }

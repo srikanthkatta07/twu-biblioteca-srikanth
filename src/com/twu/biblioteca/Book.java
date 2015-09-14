@@ -27,6 +27,16 @@ public class Book {
 
     @Override
     public boolean equals(Object object) {
-        return true;
+        Book that = (Book) object;
+        if (that.hashCode() == this.hashCode())
+            return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 17;
+        hash = hash * 7 + name.hashCode();
+        return hash;
     }
 }
