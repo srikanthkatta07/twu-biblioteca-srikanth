@@ -1,4 +1,4 @@
-#Biblioteca Release 1#
+#Biblioteca Release#
     Implementing Library Management System for Banglore public library
 #DEV ENVIRONMENT#
     JDK
