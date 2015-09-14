@@ -2,3 +2,7 @@
 out
 .DS_Store
 *.iml
+cobertura.ser
+reports/
+instrumented/
+TESTS-TestSuites.xml
