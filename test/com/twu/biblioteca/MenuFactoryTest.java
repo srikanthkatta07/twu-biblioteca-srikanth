@@ -11,9 +11,8 @@ public class MenuFactoryTest {
     @Test
     public void shouldEqualsAnotherMenuWhichHasSameMenuList() {
         MenuFactory menuFactory = new MenuFactory();
-        ArrayList<String> menuList = new ArrayList<>();
+        ArrayList<String> menuList = new ArrayList<String>();
 
-        menuList = new ArrayList<String>();
         menuList.add("1.List of books");
         menuList.add("2.Checkedout books");
         menuList.add("3.Checkedin books");
@@ -21,5 +20,4 @@ public class MenuFactoryTest {
 
         assertEquals(menuFactory.setUp(), menuList);
     }
-
 }
