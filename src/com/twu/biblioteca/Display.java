@@ -47,4 +47,13 @@ public class Display {
     public void displayUnSuccessfulReturn() {
         System.out.println("That is not a valid book to return");
     }
+
+    public void displayMovieList() {
+        System.out.println(String.format("----------------------------------------------------------------"));
+        System.out.println(String.format("%-20S%-20S%-20S%-20S", "NAME", "YEAR", "DIRECTOR", "RATING"));
+        System.out.println(String.format("----------------------------------------------------------------"));
+        for (Movie movie : library.getAvailableMovies()) {
+            System.out.println(movie.getDetails());
+        }
+    }
 }

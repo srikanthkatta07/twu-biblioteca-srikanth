@@ -177,4 +177,26 @@ public class DisplayTest {
         assertEquals(headrLines + "\n" + header + "\n" + headrLines + "\n" + format + "\n", outContent.toString());
     }
 
+    @Test
+    public void displayTheListOfAvailableMoviesToTheUser() {
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        Movie movie = new Movie("3IDIOTS", 2009, "HIRANI", "10");
+
+        movies.add(movie);
+
+        Library library = new Library(listOfBooks, movies);
+        Display display = new Display(library);
+
+        display.displayMovieList();
+
+        String headrLines = String.format("----------------------------------------------------------------");
+
+        String header = String.format("%-20S%-20S%-20S%-20S", "NAME", "YEAR", "DIRECTOR", "RATING");
+
+        String format = String.format("%-20S%-20S%-20S%-20S", "3IDIOTS", 2009, "HIRANI", "10");
+
+        assertEquals(headrLines + "\n" + header + "\n" + headrLines + "\n" + format + "\n", outContent.toString());
+    }
+
 }
