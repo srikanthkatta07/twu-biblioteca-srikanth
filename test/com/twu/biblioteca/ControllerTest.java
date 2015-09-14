@@ -73,4 +73,14 @@ public class ControllerTest {
 
         verify(consoleInput, times(1)).takeInput();
     }
+
+    @Test
+    public void shouldDelegateTheDisplayingListOfMoviesWhenUserEntersOptionFive() {
+        Display display = mock(Display.class);
+        Controller controller = new Controller(display, consoleInput, library);
+
+        controller.delegate("5");
+
+        verify(display, times(1)).displayMovieList();
+    }
 }

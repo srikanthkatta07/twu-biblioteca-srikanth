@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 
 public class Controller {
 
-
     private Library library;
     private ConsoleInput consoleInput;
     private Display display;
@@ -23,6 +22,8 @@ public class Controller {
             checkIn();
         else if (option.equals("4"))
             display.exitMenu();
+        else if (option.equals("5"))
+            display.displayMovieList();
         else
             display.displayInvalidCommand();
     }
