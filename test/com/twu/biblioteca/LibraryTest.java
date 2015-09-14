@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,6 +10,13 @@ import static org.junit.Assert.assertNotEquals;
 
 public class LibraryTest {
 
+    private ArrayList<Movie> movies;
+
+    @Before
+    public void setUp() {
+        movies = new ArrayList<Movie>();
+    }
+
     @Test
     public void shouldHaveTheListOfBooksAndItShouldGiveTheListOfBooks() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
@@ -16,7 +24,7 @@ public class LibraryTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
 
         assertEquals(listOfBooks, library.getAvailableBooks());
     }
@@ -28,7 +36,7 @@ public class LibraryTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
 
         assertEquals(false, library.checkedOut("abcd"));
     }
@@ -40,7 +48,7 @@ public class LibraryTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
 
         assertEquals(true, library.checkedOut("Twostates"));
     }
@@ -52,7 +60,7 @@ public class LibraryTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
 
         library.checkedOut("Twostates");
 
@@ -66,7 +74,7 @@ public class LibraryTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
 
         library.checkedOut("Twostates");
 
@@ -80,8 +88,8 @@ public class LibraryTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
-        Library anotherLibrary = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
+        Library anotherLibrary = new Library(listOfBooks, movies);
 
         assertEquals(anotherLibrary, library);
     }
@@ -96,9 +104,22 @@ public class LibraryTest {
         listOfBooks.add(book);
         listOfBooks1.add(anotherBook);
 
-        Library library = new Library(listOfBooks);
-        Library anotherLibrary = new Library(listOfBooks1);
+        Library library = new Library(listOfBooks, movies);
+        Library anotherLibrary = new Library(listOfBooks1, movies);
 
         assertNotEquals(anotherLibrary, library);
+    }
+
+    @Test
+    public void shouldDisplayTheListOfMoviesToTheUser() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Movie movie = new Movie("3IDIOTS", 2009, "HIRANI", "10");
+
+        movies.add(movie);
+
+        Library library = new Library(listOfBooks, movies);
+
+        assertEquals(movies, library.getAvailableMovies());
     }
 }

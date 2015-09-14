@@ -10,9 +10,15 @@ import static org.junit.Assert.assertEquals;
 
 public class DisplayTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private ArrayList<Movie> movies;
 
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
+
+    @Before
+    public void setUp() {
+        movies = new ArrayList<Movie>();
+    }
 
     @Before
     public void setUpStreams() {
@@ -28,7 +34,7 @@ public class DisplayTest {
     public void shouldDisplayWelcomeMessage() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display welcomeMessage = new Display(library);
 
         welcomeMessage.displayMessage("Welcome to Biblioteca");
@@ -44,7 +50,7 @@ public class DisplayTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displayBookList();
@@ -68,7 +74,7 @@ public class DisplayTest {
         listOfBooks.add(firstBook);
         listOfBooks.add(secondBook);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displayBookList();
@@ -84,7 +90,7 @@ public class DisplayTest {
     public void shouldDisplayInvalidCommandWhenUserEntersInvalidOption() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displayInvalidCommand();
@@ -96,7 +102,7 @@ public class DisplayTest {
     public void shouldDisplaySuccessfulCheckoutMessageToTheUser() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displaySuccessfulCheckOut();
@@ -108,7 +114,7 @@ public class DisplayTest {
     public void shouldDisplayUnSuccessfulCheckoutMessageToTheUser() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displayUnSuccessfulCheckOut();
@@ -120,7 +126,7 @@ public class DisplayTest {
     public void shouldDisplayMessageWhenUserReturnedTheValidBook() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displaySuccessfulReturn();
@@ -132,7 +138,7 @@ public class DisplayTest {
     public void shouldDisplayMessageWhenUserReturnedTheUnValidBook() {
 
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displayUnSuccessfulReturn();
@@ -143,7 +149,7 @@ public class DisplayTest {
     @Test
     public void shouldExit() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         exit.expectSystemExit();
@@ -157,7 +163,7 @@ public class DisplayTest {
 
         listOfBooks.add(book);
 
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
         display.displayBookList();

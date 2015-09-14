@@ -13,7 +13,7 @@ public class BibliotecaApplication {
 
     public static void main(String args[]) {
         ConsoleInput consoleInput = new ConsoleInput();
-        Library library = new Library(new ArrayList<Book>());
+        Library library = new Library(new ArrayList<Book>(), new ArrayList<Movie>());
         Display display = new Display(library);
         Controller controller = new Controller(display, consoleInput, library);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(consoleInput);

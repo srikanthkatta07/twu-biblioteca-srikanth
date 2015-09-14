@@ -7,6 +7,7 @@ public class LibraryFactory {
 
     public Library setUp() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
 
         Book book1 = new Book("TWOSTATES", "CHETAN", 2008);
         Book book2 = new Book("WINGSOFFIRE", "APJ", 2007);
@@ -19,6 +20,6 @@ public class LibraryFactory {
         listOfBooks.add(book4);
         listOfBooks.add(book5);
 
-        return new Library(listOfBooks);
+        return new Library(listOfBooks, movies);
     }
 }

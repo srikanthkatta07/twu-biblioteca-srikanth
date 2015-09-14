@@ -17,6 +17,7 @@ public class MenuFactoryTest {
         menuList.add("2.Checkedout books");
         menuList.add("3.Checkedin books");
         menuList.add("4.Quit");
+        menuList.add("5.List of Movies");
 
         assertEquals(menuFactory.setUp(), menuList);
     }

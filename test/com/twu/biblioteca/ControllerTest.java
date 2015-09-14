@@ -12,12 +12,14 @@ public class ControllerTest {
     private ConsoleInput consoleInput;
     private Library library;
     private ArrayList<Book> listOfBooks;
+    private ArrayList<Movie> movies;
 
     @Before
     public void setUp() {
         consoleInput = new ConsoleInput();
         listOfBooks = new ArrayList<Book>();
-        library = new Library(listOfBooks);
+        movies = new ArrayList<Movie>();
+        library = new Library(listOfBooks, movies);
     }
 
     @Test
@@ -71,5 +73,4 @@ public class ControllerTest {
 
         verify(consoleInput, times(1)).takeInput();
     }
-
 }

@@ -6,11 +6,13 @@ import java.util.Iterator;
 
 public class Library {
 
+    private ArrayList<Movie> availableMovies;
     private ArrayList<Book> availableBooks;
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
 
-    public Library(ArrayList<Book> listOfBooks) {
+    public Library(ArrayList<Book> listOfBooks, ArrayList<Movie> listOfMovies) {
         this.availableBooks = listOfBooks;
+        this.availableMovies = listOfMovies;
     }
 
     public ArrayList<Book> getAvailableBooks() {
@@ -56,5 +58,9 @@ public class Library {
         int hash = 17;
         hash = hash * 31 + availableBooks.hashCode();
         return hash;
+    }
+
+    public ArrayList<Movie> getAvailableMovies() {
+        return availableMovies;
     }
 }

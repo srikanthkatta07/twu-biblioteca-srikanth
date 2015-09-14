@@ -12,6 +12,7 @@ public class LibraryFactoryTest {
     public void shouldInitializeTheListOfBooksInTheLibrary() {
         LibraryFactory libraryFactory = new LibraryFactory();
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
 
         Book book1 = new Book("TWOSTATES", "CHETAN", 2008);
         Book book2 = new Book("WINGSOFFIRE", "APJ", 2007);
@@ -23,7 +24,7 @@ public class LibraryFactoryTest {
         listOfBooks.add(book3);
         listOfBooks.add(book4);
         listOfBooks.add(book5);
-        Library library = new Library(listOfBooks);
+        Library library = new Library(listOfBooks, movies);
 
         assertEquals(libraryFactory.setUp(), library);
 
