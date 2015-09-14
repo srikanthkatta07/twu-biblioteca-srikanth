@@ -10,8 +10,8 @@ public class BibliotecaApplicationTest {
     public void shouldSetUpListOfBooksAndMenuListBeforeApplicationStarts() {
         BibliotecaApplication bibliotecaApplication = mock(BibliotecaApplication.class);
 
-        bibliotecaApplication.librarySetUp();
+        bibliotecaApplication.setUpMenuList();
 
-        verify(bibliotecaApplication, times(1)).librarySetUp();
+        verify(bibliotecaApplication, times(1)).setUpMenuList();
     }
 }
