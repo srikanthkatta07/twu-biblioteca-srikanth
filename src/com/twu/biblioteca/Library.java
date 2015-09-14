@@ -45,6 +45,16 @@ public class Library {
 
     @Override
     public boolean equals(Object object) {
-        return true;
+        Library that = (Library) object;
+        if (that.hashCode() == this.hashCode())
+            return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 17;
+        hash = hash * 31 + availableBooks.hashCode();
+        return hash;
     }
 }

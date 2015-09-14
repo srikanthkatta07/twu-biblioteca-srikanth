@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class LibraryTest {
 
@@ -83,5 +84,21 @@ public class LibraryTest {
         Library anotherLibrary = new Library(listOfBooks);
 
         assertEquals(anotherLibrary, library);
+    }
+
+    @Test
+    public void shouldNotEqualsToAnotherLibraryIfBothHaveDifferentListOfAvailableBooks() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Book> listOfBooks1 = new ArrayList<Book>();
+        Book book = new Book("Twostates", "chetan", 2008);
+        Book anotherBook = new Book("FivePoint", "chetan", 2009);
+
+        listOfBooks.add(book);
+        listOfBooks1.add(anotherBook);
+
+        Library library = new Library(listOfBooks);
+        Library anotherLibrary = new Library(listOfBooks1);
+
+        assertNotEquals(anotherLibrary, library);
     }
 }
