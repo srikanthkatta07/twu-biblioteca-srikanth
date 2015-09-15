@@ -25,9 +25,16 @@ public class Controller {
         else if (option.equals("5"))
             display.displayMovieList();
         else if(option.equals("6"))
-            library.checkedOutMovie(consoleInput.takeInput());
+            checkOutMovie();
         else
             display.displayInvalidCommand();
+    }
+
+    private void checkOutMovie() {
+        if(library.checkedOutMovie(consoleInput.takeInput()))
+            display.displaySuccessfulMovieCheckOut();
+        else
+            display.displayUnSuccessfulMovieCheckOut();
     }
 
     private void checkOut() {
