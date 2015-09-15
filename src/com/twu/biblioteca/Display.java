@@ -58,4 +58,8 @@ public class Display {
     public void displaySuccessfulMovieCheckOut() {
         System.out.println("Thank you! Enjoy the Movie");
     }
+
+    public void displayUnSuccessfulMovieCheckOut() {
+        System.out.println("That movie is not available");
+    }
 }

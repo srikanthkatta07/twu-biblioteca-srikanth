@@ -211,4 +211,16 @@ public class DisplayTest {
         assertEquals("Thank you! Enjoy the Movie\n", outContent.toString());
     }
 
+    @Test
+    public void shouldDisplayUnSuccessfulMovieCheckoutMessageToTheUser() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(listOfBooks, movies);
+        Display display = new Display(library);
+
+        display.displayUnSuccessfulMovieCheckOut();
+
+        assertEquals("That movie is not available\n", outContent.toString());
+    }
+
 }
