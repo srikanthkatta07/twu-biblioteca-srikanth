@@ -34,6 +34,6 @@ public class LibraryFactoryTest {
         movies.add(movie4);
         Library library = new Library(listOfBooks, movies);
 
-        assertEquals(libraryFactory.setUp(), library);
+        assertEquals(library, libraryFactory.setUp());
     }
 }

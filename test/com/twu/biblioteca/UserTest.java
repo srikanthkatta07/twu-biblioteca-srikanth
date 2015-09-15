@@ -8,7 +8,7 @@ public class UserTest {
 
     @Test
     public void shouldReturnTheDetailsOfTheUser() {
-        User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com","admin");
+        User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "admin");
         String format = String.format("srikanth\t9666837099\tsrikant@gmail.com\tadmin");
 
         assertEquals(format, user.toString());
@@ -16,15 +16,23 @@ public class UserTest {
 
     @Test
     public void shouldAuthenticateSuccessfulIfLibrayNumberAndPasswordAreValid() {
-        User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com","user");
+        User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "user");
 
         assertEquals(true, user.authenticate("123-7777", "abcd123"));
     }
 
     @Test
     public void shouldAuthenticateUnSuccessfulIfLibrayNumberAndPasswordAreNotValid() {
-        User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com","user");
+        User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "user");
 
         assertEquals(false, user.authenticate("123-8888", "abcd123"));
+    }
+
+    @Test
+    public void shouldEqualsToOtherUserIfBothHaveSameLibraryNumber() {
+        User user1 = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "user");
+        User user2 = new User("123-7777", "abcd123", "srika", "9666837099", "srikant@gmail.com", "user");
+
+        assertEquals(user1, user2);
     }
 }

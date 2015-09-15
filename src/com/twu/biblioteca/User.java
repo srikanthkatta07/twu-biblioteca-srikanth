@@ -30,4 +30,17 @@ public class User {
             return true;
         return false;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        User that = (User) object;
+        if ((that.libraryNumber).equals(this.libraryNumber))
+            return true;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return libraryNumber != null ? libraryNumber.hashCode() : 0;
+    }
 }
