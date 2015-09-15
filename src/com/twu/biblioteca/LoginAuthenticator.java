@@ -11,6 +11,11 @@ public class LoginAuthenticator {
     }
 
     public User authenticate(String libraryNumber, String password) {
-        return users.get(0);
+        for (User user : users) {
+            if (user.authenticate(libraryNumber, password)) {
+                return user;
+            }
+        }
+        return null;
     }
 }

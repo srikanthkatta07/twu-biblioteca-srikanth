@@ -7,7 +7,6 @@ public class User {
     private String name;
     private String password;
     private String libraryNumber;
-    private String userDetails;
 
     public User(String libraryNumber, String password, String name, String phoneNumber, String email) {
         this.libraryNumber = libraryNumber;
