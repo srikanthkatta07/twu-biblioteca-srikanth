@@ -25,6 +25,8 @@ public class User {
 
 
     public boolean authenticate(String libraryNumber, String password) {
-        return true;
+        if ((this.libraryNumber.equals(libraryNumber)) && (this.password.equals(password)))
+            return true;
+        return false;
     }
 }

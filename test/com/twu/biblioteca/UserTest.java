@@ -20,4 +20,11 @@ public class UserTest {
 
         assertEquals(true, user.authenticate("123-7777", "abcd123"));
     }
+
+    @Test
+    public void shouldAuthenticateUnSuccessfulIfLibrayNumberAndPasswordAreNotValid() {
+        User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com");
+
+        assertEquals(false, user.authenticate("123-8888", "abcd123"));
+    }
 }
