@@ -13,6 +13,7 @@ public class MenuFactory {
         menuList.add("3.Checkedin books");
         menuList.add("4.Quit");
         menuList.add("5.List of Movies");
+        menuList.add("6.Checkedout movies");
         return menuList;
     }
 }

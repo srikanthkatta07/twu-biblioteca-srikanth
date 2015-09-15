@@ -83,4 +83,15 @@ public class ControllerTest {
 
         verify(display, times(1)).displayMovieList();
     }
+
+    @Test
+    public void shouldTakeTheNameOfTheMovieFromTheUserToCheckedOutWhenUserEnterOptionSix() {
+        Display display = mock(Display.class);
+        ConsoleInput consoleInput = mock(ConsoleInput.class);
+        Controller controller = new Controller(display, consoleInput, library);
+
+        controller.delegate("6");
+
+        verify(consoleInput, times(1)).takeInput();
+    }
 }
