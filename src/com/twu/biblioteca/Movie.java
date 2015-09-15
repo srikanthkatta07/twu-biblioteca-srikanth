@@ -2,6 +2,7 @@
 package com.twu.biblioteca;
 
 public class Movie {
+
     private String name;
     private int year;
     private String director;
@@ -16,5 +17,11 @@ public class Movie {
 
     public String getDetails() {
         return String.format("%-20S%-20S%-20S%-20S", name, year, director, rating);
+    }
+
+    public boolean findByMovieName(String movieName) {
+        if (this.name.equals(movieName))
+            return true;
+        return false;
     }
 }

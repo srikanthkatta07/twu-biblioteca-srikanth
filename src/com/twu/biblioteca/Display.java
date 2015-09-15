@@ -20,8 +20,6 @@ public class Display {
 
     public void displayInvalidCommand() {
         System.out.println("Select an valid option!");
-
-
     }
 
     public void displayMessage(String welcomeMessage) {

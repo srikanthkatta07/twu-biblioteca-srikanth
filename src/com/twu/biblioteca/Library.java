@@ -65,6 +65,14 @@ public class Library {
     }
 
     public boolean checkedOutMovie(String movieName) {
+        Iterator<Movie> iterator = availableMovies.iterator();
+        while (iterator.hasNext()) {
+            Movie movie = iterator.next();
+            if (movie.findByMovieName(movieName)) {
+                iterator.remove();
+                return true;
+            }
+        }
         return false;
     }
 }

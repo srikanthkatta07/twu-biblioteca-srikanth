@@ -134,4 +134,16 @@ public class LibraryTest {
 
         assertEquals(false, library.checkedOutMovie("abcd"));
     }
+
+    @Test
+    public void shouldRemoveTheMovieFromListOfMoviesIfTheMovieNamesAreSame() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Movie movie = new Movie("3IDIOTS", 2009, "HIRANI", "10");
+
+        movies.add(movie);
+        Library library = new Library(listOfBooks, movies);
+
+        assertEquals(true, library.checkedOutMovie("3IDIOTS"));
+    }
 }
