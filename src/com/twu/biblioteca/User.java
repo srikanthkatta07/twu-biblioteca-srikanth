@@ -20,8 +20,11 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format(name+"\t"+phoneNumber+"\t"+email);
+        return String.format(name + "\t" + phoneNumber + "\t" + email);
     }
 
 
+    public boolean authenticate(String libraryNumber, String password) {
+        return true;
+    }
 }
