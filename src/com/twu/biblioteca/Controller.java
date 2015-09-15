@@ -24,14 +24,14 @@ public class Controller {
             display.exitMenu();
         else if (option.equals("5"))
             display.displayMovieList();
-        else if(option.equals("6"))
+        else if (option.equals("6"))
             checkOutMovie();
         else
             display.displayInvalidCommand();
     }
 
     private void checkOutMovie() {
-        if(library.checkedOutMovie(consoleInput.takeInput()))
+        if (library.checkedOutMovie(consoleInput.takeInput()))
             display.displaySuccessfulMovieCheckOut();
         else
             display.displayUnSuccessfulMovieCheckOut();
