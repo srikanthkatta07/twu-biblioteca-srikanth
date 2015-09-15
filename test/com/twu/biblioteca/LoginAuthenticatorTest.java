@@ -10,8 +10,8 @@ public class LoginAuthenticatorTest {
 
     @Test
     public void shouldReturnTheUserDetailsIfUserEntersValidCredentials() {
-        User user1 = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com");
-        User user2 = new User("111-8888", "1234", "kanth", "7660029499", "sri@gmail.com");
+        User user1 = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "admin");
+        User user2 = new User("111-8888", "1234", "kanth", "7660029499", "sri@gmail.com", "user");
         ArrayList<User> users = new ArrayList<User>();
 
         users.add(user1);
@@ -23,8 +23,8 @@ public class LoginAuthenticatorTest {
 
     @Test
     public void shouldNotReturnTheUserDetailsIfUserEntersInValidCredentials() {
-        User user1 = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com");
-        User user2 = new User("111-8888", "1234", "kanth", "7660029499", "sri@gmail.com");
+        User user1 = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "admin");
+        User user2 = new User("111-8888", "1234", "kanth", "7660029499", "sri@gmail.com", "user");
         ArrayList<User> users = new ArrayList<User>();
 
         users.add(user1);
