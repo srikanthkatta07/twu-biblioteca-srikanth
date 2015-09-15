@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class UserTest {
 
@@ -34,5 +34,14 @@ public class UserTest {
         User user2 = new User("123-7777", "abcd123", "srika", "9666837099", "srikant@gmail.com", "user");
 
         assertEquals(user1, user2);
+    }
+
+
+    @Test
+    public void shouldNotEqualsToOtherUserIfBothHaveDifferentLibraryNumber() {
+        User user1 = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "user");
+        User user2 = new User("123-7787", "abcd123", "srika", "9666837099", "srikant@gmail.com", "user");
+
+        assertNotEquals(user1, user2);
     }
 }
