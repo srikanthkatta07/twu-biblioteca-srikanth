@@ -1,7 +1,14 @@
 package com.twu.biblioteca;
 
-/**
- * Created by srikantk on 9/15/15.
- */
+import org.junit.Test;
+
+import java.util.ArrayList;
+
 public class LoginAuthenticatorTest {
+
+    @Test
+    public void shouldReturnTheUserDetailsIfUserEntersValidCredentials() {
+        ArrayList<User> users = new ArrayList<User>();
+        LoginAuthenticator loginAuthenticator = new LoginAuthenticator(users);
+    }
 }
