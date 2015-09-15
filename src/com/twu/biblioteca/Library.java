@@ -63,4 +63,8 @@ public class Library {
     public ArrayList<Movie> getAvailableMovies() {
         return availableMovies;
     }
+
+    public boolean checkedOutMovie(String movieName) {
+        return false;
+    }
 }
