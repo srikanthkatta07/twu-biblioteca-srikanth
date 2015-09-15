@@ -24,7 +24,7 @@ public class Controller {
             display.exitMenu();
         else if (option.equals("5"))
             display.displayMovieList();
-        else if (option.equals("6"))
+        else if(option.equals("6"))
             library.checkedOutMovie(consoleInput.takeInput());
         else
             display.displayInvalidCommand();

@@ -54,4 +54,8 @@ public class Display {
             System.out.println(movie.getDetails());
         }
     }
+
+    public void displaySuccessfulMovieCheckOut() {
+        System.out.println("Thank you! Enjoy the Movie");
+    }
 }

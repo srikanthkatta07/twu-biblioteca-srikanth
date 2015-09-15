@@ -199,4 +199,16 @@ public class DisplayTest {
         assertEquals(headrLines + "\n" + header + "\n" + headrLines + "\n" + format + "\n", outContent.toString());
     }
 
+    @Test
+    public void shouldDisplaySuccessfulMovieCheckoutMessageToTheUser() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(listOfBooks, movies);
+        Display display = new Display(library);
+
+        display.displaySuccessfulMovieCheckOut();
+
+        assertEquals("Thank you! Enjoy the Movie\n", outContent.toString());
+    }
+
 }
