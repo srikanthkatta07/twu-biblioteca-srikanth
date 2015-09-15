@@ -4,15 +4,13 @@ import java.util.ArrayList;
 
 public class LoginAuthenticator {
 
-    public LoginAuthenticator(String libraryNumber, String password) {
-
-    }
+    private ArrayList<User> users;
 
     public LoginAuthenticator(ArrayList<User> users) {
-
+        this.users = users;
     }
 
-    public void authenticate() {
-
+    public User authenticate(String libraryNumber, String password) {
+        return users.get(0);
     }
 }
