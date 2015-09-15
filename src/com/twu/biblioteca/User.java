@@ -41,6 +41,6 @@ public class User {
 
     @Override
     public int hashCode() {
-        return libraryNumber != null ? libraryNumber.hashCode() : 0;
+        return libraryNumber.hashCode();
     }
 }
