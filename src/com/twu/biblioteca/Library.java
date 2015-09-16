@@ -41,6 +41,7 @@ public class Library {
             Book book = iterator.next();
             if (book.findByBookName(bookName)) {
                 availableBooks.add(book);
+                checkedOutUsers.remove(book, user);
                 iterator.remove();
                 return true;
             }

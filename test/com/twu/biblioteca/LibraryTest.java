@@ -153,7 +153,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnTheListOfUsersWhoCheckedOutBooks() {
+    public void shouldAddTheUserToTheListOfUsersWhenHeCheckedOutBook() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         HashMap<Book, User> checkedOutUsers = new HashMap<Book, User>();
         Book book = new Book("Twostates", "chetan", 2008);
@@ -161,10 +161,29 @@ public class LibraryTest {
         listOfBooks.add(book);
 
         Library library = new Library(listOfBooks, movies);
-
         library.checkedOut("Twostates", user);
 
         checkedOutUsers.put(book, user);
+
+        assertEquals(checkedOutUsers, library.getCheckedOutUsers());
+    }
+
+    @Test
+    public void shouldRemoveTheUserFromChekedOutUsersListWhenHeCheckedInBook() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        HashMap<Book, User> checkedOutUsers = new HashMap<Book, User>();
+        Book book1 = new Book("Twostates", "chetan", 2008);
+        Book book2 = new Book("Fivepoints", "chetan", 2008);
+
+        listOfBooks.add(book1);
+        listOfBooks.add(book2);
+
+        Library library = new Library(listOfBooks, movies);
+        library.checkedOut("Twostates", user);
+        library.checkedOut("Fivepoints", user);
+        library.checkedIn("Twostates", user);
+
+        checkedOutUsers.put(book2, user);
 
         assertEquals(checkedOutUsers, library.getCheckedOutUsers());
     }
