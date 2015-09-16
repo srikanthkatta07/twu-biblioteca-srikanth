@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -16,7 +17,7 @@ public class LibraryTest {
     @Before
     public void setUp() {
         movies = new ArrayList<Movie>();
-        user=new User("123-7777","abcd123","srikanth","9666837099","s@gmail.com","admin");
+        user = new User("123-7777", "abcd123", "srikanth", "9666837099", "s@gmail.com", "admin");
     }
 
     @Test
@@ -40,7 +41,7 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        assertEquals(false, library.checkedOut("abcd",user));
+        assertEquals(false, library.checkedOut("abcd", user));
     }
 
     @Test
@@ -52,7 +53,7 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        assertEquals(true, library.checkedOut("Twostates",user));
+        assertEquals(true, library.checkedOut("Twostates", user));
     }
 
     @Test
@@ -64,9 +65,9 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        library.checkedOut("Twostates",user);
+        library.checkedOut("Twostates", user);
 
-        assertEquals(true, library.checkedIn("Twostates",user));
+        assertEquals(true, library.checkedIn("Twostates", user));
     }
 
     @Test
@@ -78,9 +79,9 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        library.checkedOut("Twostates",user);
+        library.checkedOut("Twostates", user);
 
-        assertEquals(false, library.checkedIn("abcd",user));
+        assertEquals(false, library.checkedIn("abcd", user));
     }
 
     @Test
@@ -149,5 +150,22 @@ public class LibraryTest {
         Library library = new Library(listOfBooks, movies);
 
         assertEquals(true, library.checkedOutMovie("3IDIOTS"));
+    }
+
+    @Test
+    public void shouldReturnTheListOfUsersWhoCheckedOutBooks() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        HashMap<Book, User> checkedOutUsers = new HashMap<Book, User>();
+        Book book = new Book("Twostates", "chetan", 2008);
+
+        listOfBooks.add(book);
+
+        Library library = new Library(listOfBooks, movies);
+
+        library.checkedOut("Twostates", user);
+
+        checkedOutUsers.put(book, user);
+
+        assertEquals(checkedOutUsers, library.getCheckedOutUsers());
     }
 }

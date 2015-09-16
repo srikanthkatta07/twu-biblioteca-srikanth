@@ -2,6 +2,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Library {
@@ -9,6 +10,7 @@ public class Library {
     private ArrayList<Movie> availableMovies;
     private ArrayList<Book> availableBooks;
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+    private HashMap<Book, User> checkedOutUsers = new HashMap<Book, User>();
 
     public Library(ArrayList<Book> listOfBooks, ArrayList<Movie> listOfMovies) {
         this.availableBooks = listOfBooks;
@@ -19,12 +21,13 @@ public class Library {
         return availableBooks;
     }
 
-    public boolean checkedOut(String bookName,User user) {
+    public boolean checkedOut(String bookName, User user) {
         Iterator<Book> iterator = availableBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
             if (book.findByBookName(bookName)) {
                 checkedOutBooks.add(book);
+                checkedOutUsers.put(book, user);
                 iterator.remove();
                 return true;
             }
@@ -32,7 +35,7 @@ public class Library {
         return false;
     }
 
-    public boolean checkedIn(String bookName,User user) {
+    public boolean checkedIn(String bookName, User user) {
         Iterator<Book> iterator = checkedOutBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
@@ -74,5 +77,9 @@ public class Library {
             }
         }
         return false;
+    }
+
+    public HashMap<Book, User> getCheckedOutUsers() {
+        return checkedOutUsers;
     }
 }
