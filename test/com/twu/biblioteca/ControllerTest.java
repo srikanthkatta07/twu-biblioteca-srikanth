@@ -13,10 +13,12 @@ public class ControllerTest {
     private Library library;
     private ArrayList<Book> listOfBooks;
     private ArrayList<Movie> movies;
+    private User user;
 
     @Before
     public void setUp() {
         consoleInput = new ConsoleInput();
+        user=mock(User.class);
         listOfBooks = new ArrayList<Book>();
         movies = new ArrayList<Movie>();
         library = new Library(listOfBooks, movies);
@@ -27,7 +29,7 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("1");
+        controller.delegate("1",user);
 
         verify(display, times(1)).displayBookList();
     }
@@ -37,7 +39,7 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("abcd");
+        controller.delegate("abcd",user);
 
         verify(display, times(1)).displayInvalidCommand();
     }
@@ -47,7 +49,7 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("4");
+        controller.delegate("4",user);
 
         verify(display, times(1)).exitMenu();
     }
@@ -58,7 +60,7 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("2");
+        controller.delegate("2",user);
 
         verify(consoleInput, times(1)).takeInput();
     }
@@ -69,7 +71,7 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("3");
+        controller.delegate("3",user);
 
         verify(consoleInput, times(1)).takeInput();
     }
@@ -79,7 +81,7 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("5");
+        controller.delegate("5",user);
 
         verify(display, times(1)).displayMovieList();
     }
@@ -90,7 +92,7 @@ public class ControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("6");
+        controller.delegate("6",user);
 
         verify(consoleInput, times(1)).takeInput();
     }

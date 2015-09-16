@@ -15,7 +15,6 @@ public class BibliotecaApplication {
         ConsoleInput consoleInput = new ConsoleInput();
         Library library = new Library(new ArrayList<Book>(), new ArrayList<Movie>());
         Display display = new Display(library);
-        Controller controller = new Controller(display, consoleInput, library);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(consoleInput);
         bibliotecaApplication.launch();
     }
@@ -34,8 +33,5 @@ public class BibliotecaApplication {
         MainMenu mainMenu = new MainMenu(menuList);
         mainMenu.showMenuList();
         Controller controller = new Controller(display, new ConsoleInput(), library);
-        while (true) {
-            controller.delegate(consoleInput.takeInput());
-        }
     }
 }

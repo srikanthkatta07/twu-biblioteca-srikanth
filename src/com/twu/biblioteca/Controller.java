@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 
 public class Controller {
 
+    private User user;
     private Library library;
     private ConsoleInput consoleInput;
     private Display display;
@@ -13,7 +14,7 @@ public class Controller {
         this.library = library;
     }
 
-    public void delegate(String option) {
+    public void delegate(String option, User user) {
         if (option.equals("1"))
             display.displayBookList();
         else if (option.equals("2"))
