@@ -84,7 +84,7 @@ public class Library {
     public String getCheckedOutUsers() {
         String checkedOutUsersList = "";
         for (Book book : checkedOutUsers.keySet()) {
-            checkedOutUsersList = book.getDetails() + checkedOutUsers.get(book) + checkedOutUsersList;
+            checkedOutUsersList = book.getDetails() + checkedOutUsers.get(book) + "\n" + checkedOutUsersList;
         }
         return checkedOutUsersList;
     }
