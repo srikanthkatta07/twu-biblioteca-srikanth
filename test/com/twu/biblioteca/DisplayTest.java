@@ -211,15 +211,16 @@ public class DisplayTest {
     }
 
     @Test
-    public void shouldDisplayInvalidLoginMessageToTheUser() {
+    public void shouldDisplayInvalidOptionMessageWhenUserEntersInvalidOption() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
         Library library = new Library(listOfBooks, movies);
         Display display = new Display(library);
 
-        display.displayInvalidLoginMessage();
+        display.displayInvalidOptionMessage();
 
-        assertEquals("Please provide valid details\n", outContent.toString());
+        assertEquals("Enter valid option\n", outContent.toString());
     }
+
 
 }

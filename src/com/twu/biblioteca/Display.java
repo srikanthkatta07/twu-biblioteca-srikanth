@@ -59,7 +59,7 @@ public class Display {
         System.out.println("That movie is not available");
     }
 
-    public void displayInvalidLoginMessage() {
-        System.out.println("Please provide valid details");
+    public void displayInvalidOptionMessage() {
+        System.out.println("Enter valid option");
     }
 }

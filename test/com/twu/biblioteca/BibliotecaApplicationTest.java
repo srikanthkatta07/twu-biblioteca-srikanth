@@ -18,7 +18,8 @@ public class BibliotecaApplicationTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(consoleInput);
 
-       when(consoleInput.takeInput()).thenReturn("3");
+        when(consoleInput.takeInput()).thenReturn("3");
+
         bibliotecaApplication.start();
     }
 }

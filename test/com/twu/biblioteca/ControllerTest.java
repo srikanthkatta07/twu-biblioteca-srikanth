@@ -16,6 +16,7 @@ public class ControllerTest {
     private ArrayList<Movie> movies;
     private User user;
     private StartMenu startMenu;
+
     @Before
     public void setUp() {
         consoleInput = new ConsoleInput();
@@ -23,13 +24,13 @@ public class ControllerTest {
         listOfBooks = new ArrayList<Book>();
         movies = new ArrayList<Movie>();
         library = new Library(listOfBooks, movies);
-        startMenu=mock(StartMenu.class);
+        startMenu = mock(StartMenu.class);
     }
 
     @Test
     public void shouldDelgateToTheDisplayingBookListIfUserEnterOptionOne() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput, library,startMenu);
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
 
         controller.delegate("1", user);
 
@@ -39,7 +40,7 @@ public class ControllerTest {
     @Test
     public void shouldDelegateTheDisplayingListOfMoviesWhenUserEntersOptionTwo() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput, library,startMenu);
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
 
         controller.delegate("2", user);
 
@@ -50,7 +51,7 @@ public class ControllerTest {
     public void shouldTakeTheNameOfTheMovieFromTheUserToCheckedOutWhenUserEnterOptionThree() {
         Display display = mock(Display.class);
         ConsoleInput consoleInput = mock(ConsoleInput.class);
-        Controller controller = new Controller(display, consoleInput, library,startMenu);
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
 
         controller.delegate("3", user);
 
@@ -64,7 +65,7 @@ public class ControllerTest {
         Library library = mock(Library.class);
         Display display = mock(Display.class);
         User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "user");
-        Controller controller = new Controller(display, consoleInput, library,startMenu);
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
 
         controller.delegate("4", user);
 
@@ -76,7 +77,7 @@ public class ControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
         User user = new User("default", "default", "default", "default", "default", "user");
-        Controller controller = new Controller(display, consoleInput, library,startMenu);
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
 
         controller.delegate("5", user);
 
@@ -88,7 +89,7 @@ public class ControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
         User user = new User("default", "default", "default", "default", "default", "user");
-        Controller controller = new Controller(display, consoleInput, library,startMenu);
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
 
         controller.delegate("6", user);
 
@@ -101,10 +102,23 @@ public class ControllerTest {
         Library library = mock(Library.class);
         Display display = mock(Display.class);
         User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "user");
-        Controller controller = new Controller(display, consoleInput, library,startMenu);
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
 
         controller.delegate("7", user);
 
         verify(display).displayMessage(String.format("srikanth" + "\t" + "9666837099" + "\t" + "s@gmail.com" + "\t" + "user"));
+    }
+
+    @Test
+    public void shouldDelegateToDisplayInvalidMessageWhenUserEnterInvalidOption() {
+        ConsoleInput consoleInput = mock(ConsoleInput.class);
+        Library library = mock(Library.class);
+        Display display = mock(Display.class);
+        User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "user");
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
+
+        controller.delegate("9", user);
+
+        verify(display).displayInvalidOptionMessage();
     }
 }

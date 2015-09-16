@@ -35,7 +35,7 @@ public class StartMenuControllerTest {
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
         Controller controller = mock(Controller.class);
-        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu,controller);
+        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
 
         startMenuController.delegate("1");
 
@@ -48,7 +48,7 @@ public class StartMenuControllerTest {
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
         Controller controller = mock(Controller.class);
-        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu,controller);
+        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
 
         when(consoleInput.takeInput()).thenReturn("4");
         startMenuController.delegate("2");
@@ -62,8 +62,10 @@ public class StartMenuControllerTest {
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
         Controller controller = mock(Controller.class);
-       StartMenuController startMenuController=new StartMenuController(consoleInput,loginAuthenticator,mainMenu,controller);
+        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
+
         exit.expectSystemExit();
+
         startMenuController.delegate("3");
     }
 
@@ -73,11 +75,11 @@ public class StartMenuControllerTest {
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
         Controller controller = mock(Controller.class);
-        StartMenuController startMenuController=new StartMenuController(consoleInput,loginAuthenticator,mainMenu,controller);
+        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
 
         startMenuController.delegate("4");
 
-        assertEquals("Enter valid option\n",outContent.toString());
+        assertEquals("Enter valid option\n", outContent.toString());
 
     }
 

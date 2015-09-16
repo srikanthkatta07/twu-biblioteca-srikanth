@@ -130,6 +130,7 @@ public class LibraryTest {
         Movie movie = new Movie("3IDIOTS", 2009, "HIRANI", "10");
 
         movies.add(movie);
+
         Library library = new Library(listOfBooks, movies);
 
         assertEquals(false, library.checkedOutMovie("abcd"));
@@ -142,6 +143,7 @@ public class LibraryTest {
         Movie movie = new Movie("3IDIOTS", 2009, "HIRANI", "10");
 
         movies.add(movie);
+
         Library library = new Library(listOfBooks, movies);
 
         assertEquals(true, library.checkedOutMovie("3IDIOTS"));

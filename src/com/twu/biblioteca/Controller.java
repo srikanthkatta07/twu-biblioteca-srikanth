@@ -1,4 +1,4 @@
-//It delegates the user choices
+//It delegates the choices based on user or librarian or default user
 package com.twu.biblioteca;
 
 public class Controller {
@@ -29,6 +29,8 @@ public class Controller {
             checkIn();
         else if (option.equals("7") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
             display.displayMessage(user.toString());
+        else
+            display.displayInvalidOptionMessage();
     }
 
     private void checkOutMovie() {

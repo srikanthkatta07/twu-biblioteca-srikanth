@@ -12,7 +12,7 @@ public class MenuCreatorTest {
     @Test
     public void shouldCreateTheNewMenuListIfNormalUserLoggedIn() {
         ArrayList<String> menuList = new ArrayList<String>();
-        User user =new User("default","default","default","default","default","user");
+        User user = new User("default", "default", "default", "default", "default", "user");
         MenuCreator menuAdder = new MenuCreator(user);
 
         menuList.add("1.List of books");
@@ -29,7 +29,7 @@ public class MenuCreatorTest {
     @Test
     public void shouldCreateTheNewMenuListIfLibrarianLoggedIn() {
         ArrayList<String> menuList = new ArrayList<String>();
-        User user =new User("default","default","default","default","default","librarian");
+        User user = new User("default", "default", "default", "default", "default", "librarian");
         MenuCreator menuAdder = new MenuCreator(user);
 
         menuList.add("1.List of books");

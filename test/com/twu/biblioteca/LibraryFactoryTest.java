@@ -13,7 +13,6 @@ public class LibraryFactoryTest {
         LibraryFactory libraryFactory = new LibraryFactory();
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         ArrayList<Movie> movies = new ArrayList<Movie>();
-
         Book book1 = new Book("TWOSTATES", "CHETAN", 2008);
         Book book2 = new Book("WINGSOFFIRE", "APJ", 2007);
         Book book3 = new Book("HARRY POTTER", "JK", 2006);
@@ -23,6 +22,7 @@ public class LibraryFactoryTest {
         Movie movie2 = new Movie("PK", 2014, "HIRANI", "9");
         Movie movie3 = new Movie("AVATAR", 2009, "JAMES", "10");
         Movie movie4 = new Movie("BAHUABLI", 2015, "RAJAMOULI", "UNRATED");
+
         listOfBooks.add(book1);
         listOfBooks.add(book2);
         listOfBooks.add(book3);
@@ -32,6 +32,7 @@ public class LibraryFactoryTest {
         movies.add(movie2);
         movies.add(movie3);
         movies.add(movie4);
+
         Library library = new Library(listOfBooks, movies);
 
         assertEquals(library, libraryFactory.setUp());

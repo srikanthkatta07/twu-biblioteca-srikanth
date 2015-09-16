@@ -16,6 +16,7 @@ public class LoginAuthenticatorTest {
 
         users.add(user1);
         users.add(user2);
+
         LoginAuthenticator loginAuthenticator = new LoginAuthenticator(users);
 
         assertEquals(user1, loginAuthenticator.authenticate("123-7777", "abcd123"));
@@ -29,6 +30,7 @@ public class LoginAuthenticatorTest {
 
         users.add(user1);
         users.add(user2);
+
         LoginAuthenticator loginAuthenticator = new LoginAuthenticator(users);
 
         assertEquals(null, loginAuthenticator.authenticate("111-7777", "abcd123"));
