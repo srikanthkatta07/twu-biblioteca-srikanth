@@ -12,9 +12,6 @@ public class DisplayTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private ArrayList<Movie> movies;
 
-    @Rule
-    public final ExpectedSystemExit exit = ExpectedSystemExit.none();
-
     @Before
     public void setUp() {
         movies = new ArrayList<Movie>();
@@ -144,16 +141,6 @@ public class DisplayTest {
         display.displayUnSuccessfulReturn();
 
         assertEquals("That is not a valid book to return\n", outContent.toString());
-    }
-
-    @Test
-    public void shouldExit() {
-        ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        Library library = new Library(listOfBooks, movies);
-        Display display = new Display(library);
-
-        exit.expectSystemExit();
-        display.exitMenu();
     }
 
     @Test

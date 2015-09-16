@@ -26,10 +26,6 @@ public class Display {
         System.out.println(welcomeMessage);
     }
 
-    public void exitMenu() {
-        System.exit(0);
-    }
-
     public void displaySuccessfulCheckOut() {
         System.out.println("Thank you! Enjoy the book");
     }

@@ -18,11 +18,10 @@ public class MenuCreatorTest {
         menuList.add("1.List of books");
         menuList.add("2.List of Movies");
         menuList.add("3.Checkedout Movies");
-        menuList.add("4.Quit");
+        menuList.add("4.Logout");
         menuList.add("5.Checkedout Books");
         menuList.add("6.Checkedin Books");
         menuList.add("7.User details");
-        menuList.add("8.Logout");
 
         assertEquals(menuList, menuAdder.addMenuItem());
     }
@@ -36,12 +35,11 @@ public class MenuCreatorTest {
         menuList.add("1.List of books");
         menuList.add("2.List of Movies");
         menuList.add("3.Checkedout Movies");
-        menuList.add("4.Quit");
+        menuList.add("4.Logout");
         menuList.add("5.Checkedout Books");
         menuList.add("6.Checkedin Books");
         menuList.add("7.User details");
-        menuList.add("8.Logout");
-        menuList.add("9.Checkedout Booklist");
+        menuList.add("8.Checkedout Booklist");
 
         assertEquals(menuList, menuAdder.addMenuItem());
     }

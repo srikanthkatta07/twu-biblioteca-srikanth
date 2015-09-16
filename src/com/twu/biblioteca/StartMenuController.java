@@ -25,10 +25,13 @@ public class StartMenuController {
                 mainMenu.showMenuList();
                 controller.delegate(consoleInput.takeInput(), user);
             }
-        } else {
+        } else if(option.equals("2")){
             mainMenu.showMenuList();
             user = new User("default", "default", "default", "default", "default", "default");
             controller.delegate(consoleInput.takeInput(), user);
+        }
+        else{
+            System.exit(0);
         }
     }
 }

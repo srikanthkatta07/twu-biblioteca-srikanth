@@ -32,6 +32,7 @@ public class BibliotecaApplication {
         display.displayMessage("Welcome to Biblioteca");
         MainMenu mainMenu = new MainMenu(menuList);
         mainMenu.showMenuList();
-        Controller controller = new Controller(display, new ConsoleInput(), library);
+        StartMenu startMenu=new StartMenu();
+        Controller controller = new Controller(display, new ConsoleInput(), library,startMenu);
     }
 }

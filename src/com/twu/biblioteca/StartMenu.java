@@ -9,6 +9,7 @@ public class StartMenu {
     public StartMenu() {
         startMenuList.add("1.LogIn");
         startMenuList.add("2.As Guest");
+        startMenuList.add("3.Quit");
 
     }
 

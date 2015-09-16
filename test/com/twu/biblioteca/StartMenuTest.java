@@ -31,6 +31,6 @@ public class StartMenuTest {
 
         startMenu.showStartMenuList();
 
-        assertEquals("1.LogIn\n2.As Guest\n", outContent.toString());
+        assertEquals("1.LogIn\n2.As Guest\n3.Quit\n", outContent.toString());
     }
 }
