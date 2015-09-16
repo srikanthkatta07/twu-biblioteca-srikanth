@@ -17,7 +17,11 @@ public class BibliotecaApplication {
         Display display = new Display(library);
         Controller controller = new Controller(display, consoleInput, library);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(consoleInput);
-        bibliotecaApplication.start();
+        bibliotecaApplication.launch();
+    }
+
+    private void launch() {
+
     }
 
     public void start() {
