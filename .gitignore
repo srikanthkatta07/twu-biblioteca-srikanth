@@ -6,3 +6,4 @@ cobertura.ser
 reports/
 instrumented/
 TESTS-TestSuites.xml
+*.properties
