@@ -104,7 +104,7 @@ public class ControllerTest {
 
         controller.delegate("7", user);
 
-        verify(display).displayMessage(String.format("%-20S%-20S%-20S%-20S\n", "srikanth", "9666837099", "s@gmail.com", "user"));
+        verify(display).displayMessage(String.format("%-20S%-20S%-20S%-20S", "srikanth", "9666837099", "s@gmail.com", "user"));
     }
 
     @Test

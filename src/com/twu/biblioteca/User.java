@@ -22,7 +22,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%-20S%-20S%-20S%-20S\n", name, phoneNumber, email, role);
+        return String.format("%-20S%-20S%-20S%-20S", name, phoneNumber, email, role);
     }
 
 
