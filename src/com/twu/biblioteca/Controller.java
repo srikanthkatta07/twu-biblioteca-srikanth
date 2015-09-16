@@ -24,9 +24,9 @@ public class Controller {
         else if (option.equals("3"))
             checkOutMovie();
         else if (option.equals("5") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
-            checkOut();
+            checkOut(this.user);
         else if (option.equals("6") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
-            checkIn();
+            checkIn(this.user);
         else if (option.equals("7") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
             display.displayMessage(user.toString());
         else
@@ -40,15 +40,15 @@ public class Controller {
             display.displayUnSuccessfulMovieCheckOut();
     }
 
-    private void checkOut() {
-        if (library.checkedOut(consoleInput.takeInput()))
+    private void checkOut(User user) {
+        if (library.checkedOut(consoleInput.takeInput(), user))
             display.displaySuccessfulCheckOut();
         else
             display.displayUnSuccessfulCheckOut();
     }
 
-    private void checkIn() {
-        if (library.checkedIn(consoleInput.takeInput()))
+    private void checkIn(User user) {
+        if (library.checkedIn(consoleInput.takeInput(), user))
             display.displaySuccessfulReturn();
         else
             display.displayUnSuccessfulReturn();

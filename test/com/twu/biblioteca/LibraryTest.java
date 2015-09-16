@@ -11,10 +11,12 @@ import static org.junit.Assert.assertNotEquals;
 public class LibraryTest {
 
     private ArrayList<Movie> movies;
+    private User user;
 
     @Before
     public void setUp() {
         movies = new ArrayList<Movie>();
+        user=new User("123-7777","abcd123","srikanth","9666837099","s@gmail.com","admin");
     }
 
     @Test
@@ -38,7 +40,7 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        assertEquals(false, library.checkedOut("abcd"));
+        assertEquals(false, library.checkedOut("abcd",user));
     }
 
     @Test
@@ -50,7 +52,7 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        assertEquals(true, library.checkedOut("Twostates"));
+        assertEquals(true, library.checkedOut("Twostates",user));
     }
 
     @Test
@@ -62,9 +64,9 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        library.checkedOut("Twostates");
+        library.checkedOut("Twostates",user);
 
-        assertEquals(true, library.checkedIn("Twostates"));
+        assertEquals(true, library.checkedIn("Twostates",user));
     }
 
     @Test
@@ -76,9 +78,9 @@ public class LibraryTest {
 
         Library library = new Library(listOfBooks, movies);
 
-        library.checkedOut("Twostates");
+        library.checkedOut("Twostates",user);
 
-        assertEquals(false, library.checkedIn("abcd"));
+        assertEquals(false, library.checkedIn("abcd",user));
     }
 
     @Test

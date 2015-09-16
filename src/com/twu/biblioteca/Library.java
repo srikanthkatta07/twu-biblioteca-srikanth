@@ -19,7 +19,7 @@ public class Library {
         return availableBooks;
     }
 
-    public boolean checkedOut(String bookName) {
+    public boolean checkedOut(String bookName,User user) {
         Iterator<Book> iterator = availableBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
@@ -32,7 +32,7 @@ public class Library {
         return false;
     }
 
-    public boolean checkedIn(String bookName) {
+    public boolean checkedIn(String bookName,User user) {
         Iterator<Book> iterator = checkedOutBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
