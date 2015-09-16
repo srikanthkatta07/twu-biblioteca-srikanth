@@ -13,26 +13,28 @@ public class BibliotecaApplication {
 
     public static void main(String args[]) {
         ConsoleInput consoleInput = new ConsoleInput();
-        Library library = new Library(new ArrayList<Book>(), new ArrayList<Movie>());
-        Display display = new Display(library);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(consoleInput);
-        bibliotecaApplication.launch();
-    }
-
-    private void launch() {
-
+        bibliotecaApplication.start();
     }
 
     public void start() {
-        MenuFactory menuFactory = new MenuFactory();
-        LibraryFactory libraryFactory = new LibraryFactory();
-        ArrayList<String> menuList = menuFactory.setUp();
-        Library library = libraryFactory.setUp();
-        Display display = new Display(library);
-        display.displayMessage("Welcome to Biblioteca");
-        MainMenu mainMenu = new MainMenu(menuList);
-        mainMenu.showMenuList();
-        StartMenu startMenu=new StartMenu();
-        Controller controller = new Controller(display, new ConsoleInput(), library,startMenu);
-    }
+
+            LibraryFactory libraryFactory = new LibraryFactory();
+            Library library = libraryFactory.setUp();
+            Display display = new Display(library);
+            StartMenu startMenu = new StartMenu();
+            display.displayMessage("Welcome to Biblioteca");
+            while (true) {
+                startMenu.showStartMenuList();
+                UserFactory userFactory = new UserFactory();
+                MenuFactory menuFactory = new MenuFactory();
+                ArrayList<String> menuList = menuFactory.setUp();
+                MainMenu mainMenu = new MainMenu(menuList);
+                LoginAuthenticator loginAuthenticator = new LoginAuthenticator(userFactory.setUp());
+                Controller controller = new Controller(display, new ConsoleInput(), library, startMenu);
+                StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
+                startMenuController.delegate(consoleInput.takeInput());
+            }
+        }
 }
+

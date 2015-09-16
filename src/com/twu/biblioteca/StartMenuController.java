@@ -23,14 +23,28 @@ public class StartMenuController {
                 menuCreator = new MenuCreator(user);
                 mainMenu = new MainMenu(menuCreator.addMenuItem());
                 mainMenu.showMenuList();
-                controller.delegate(consoleInput.takeInput(), user);
+                while(true) {
+                    String input=consoleInput.takeInput();
+                    if(input.equals("4"))
+                        break;
+                    else
+                        controller.delegate(input, user);
+                }
             }
-        } else if(option.equals("2")){
+            else{
+                System.out.println("Please provide valid details");
+            }
+        } else if (option.equals("2")) {
             mainMenu.showMenuList();
             user = new User("default", "default", "default", "default", "default", "default");
-            controller.delegate(consoleInput.takeInput(), user);
-        }
-        else{
+            while(true) {
+                String input=consoleInput.takeInput();
+                if(input.equals("4"))
+                    break;
+                else
+                    controller.delegate(input, user);
+            }
+        } else {
             System.exit(0);
         }
     }

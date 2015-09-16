@@ -34,6 +34,7 @@ public class StartMenuControllerTest {
         Controller controller = mock(Controller.class);
         StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu,controller);
 
+        when(consoleInput.takeInput()).thenReturn("4");
         startMenuController.delegate("2");
 
         verify(mainMenu, times(1)).showMenuList();
@@ -48,6 +49,7 @@ public class StartMenuControllerTest {
        StartMenuController startMenuController=new StartMenuController(consoleInput,loginAuthenticator,mainMenu,controller);
         exit.expectSystemExit();
         startMenuController.delegate("3");
+
 
 
     }

@@ -23,10 +23,7 @@ public class Controller {
             display.displayMovieList();
         else if (option.equals("3"))
             checkOutMovie();
-        else if (option.equals("4") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian")))) {
-            this.user = null;
-            startMenu.showStartMenuList();
-        } else if (option.equals("5") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
+        else if (option.equals("5") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
             checkOut();
         else if (option.equals("6") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
             checkIn();
@@ -54,4 +51,5 @@ public class Controller {
         else
             display.displayUnSuccessfulReturn();
     }
+
 }
