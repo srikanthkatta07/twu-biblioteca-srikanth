@@ -9,7 +9,7 @@ public class UserTest {
     @Test
     public void shouldReturnTheDetailsOfTheUser() {
         User user = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "admin");
-        String format = String.format("srikanth\t9666837099\tsrikant@gmail.com\tadmin");
+        String format = String.format("%-20S%-20S%-20S%-20S\n", "srikanth", "9666837099", "srikant@gmail.com", "admin");
 
         assertEquals(format, user.toString());
     }

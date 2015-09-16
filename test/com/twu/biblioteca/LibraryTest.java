@@ -17,7 +17,7 @@ public class LibraryTest {
     @Before
     public void setUp() {
         movies = new ArrayList<Movie>();
-        user = new User("123-7777", "abcd123", "srikanth", "9666837099", "s@gmail.com", "admin");
+        user = new User("123-7777", "abcd123", "srikanth", "9666837099", "s@gmail.com", "librarian");
     }
 
     @Test
@@ -155,7 +155,6 @@ public class LibraryTest {
     @Test
     public void shouldAddTheUserToTheListOfUsersWhenHeCheckedOutBook() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        HashMap<Book, User> checkedOutUsers = new HashMap<Book, User>();
         Book book = new Book("Twostates", "chetan", 2008);
 
         listOfBooks.add(book);
@@ -163,15 +162,15 @@ public class LibraryTest {
         Library library = new Library(listOfBooks, movies);
         library.checkedOut("Twostates", user);
 
-        checkedOutUsers.put(book, user);
+        String format = String.format("%-20S%-20S%-20S%-20S%-20S%-20S%-20S\n", "TWOSTATES", "CHETAN",2008,"srikanth","9666837099","s@gmail.com","librarian");
 
-        assertEquals(checkedOutUsers, library.getCheckedOutUsers());
+        assertEquals(format, library.getCheckedOutUsers());
     }
 
     @Test
     public void shouldRemoveTheUserFromChekedOutUsersListWhenHeCheckedInBook() {
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
-        HashMap<Book, User> checkedOutUsers = new HashMap<Book, User>();
+
         Book book1 = new Book("Twostates", "chetan", 2008);
         Book book2 = new Book("Fivepoints", "chetan", 2008);
 
@@ -183,8 +182,8 @@ public class LibraryTest {
         library.checkedOut("Fivepoints", user);
         library.checkedIn("Twostates", user);
 
-        checkedOutUsers.put(book2, user);
+        String format = String.format("%-20S%-20S%-20S%-20S%-20S%-20S%-20S\n", "FIVEPOINTS", "CHETAN",2008,"srikanth","9666837099","s@gmail.com","librarian");
 
-        assertEquals(checkedOutUsers, library.getCheckedOutUsers());
+        assertEquals(format, library.getCheckedOutUsers());
     }
 }

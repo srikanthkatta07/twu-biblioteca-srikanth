@@ -106,7 +106,7 @@ public class ControllerTest {
 
         controller.delegate("7", user);
 
-        verify(display).displayMessage(String.format("srikanth" + "\t" + "9666837099" + "\t" + "s@gmail.com" + "\t" + "user"));
+        verify(display).displayMessage(String.format("%-20S%-20S%-20S%-20S\n","srikanth","9666837099","s@gmail.com","user"));
     }
 
     @Test
@@ -121,4 +121,18 @@ public class ControllerTest {
 
         verify(display).displayInvalidOptionMessage();
     }
+    @Test
+    public void shouldDelegateToLibraryToDisplayTheListOfCheckedOutUsers() {
+        ConsoleInput consoleInput = mock(ConsoleInput.class);
+        Library library = mock(Library.class);
+        Display display = mock(Display.class);
+        User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "librarian");
+        Controller controller = new Controller(display, consoleInput, library, startMenu);
+
+        controller.delegate("8", user);
+
+        verify(library).getCheckedOutUsers();
+    }
+
+
 }

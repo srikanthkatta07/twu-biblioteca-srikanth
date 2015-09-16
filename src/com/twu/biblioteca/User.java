@@ -21,7 +21,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format(name + "\t" + phoneNumber + "\t" + email + "\t" + role);
+        return String.format("%-20S%-20S%-20S%-20S\n", name, phoneNumber,email,role);
     }
 
 

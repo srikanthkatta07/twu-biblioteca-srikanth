@@ -4,10 +4,10 @@ package com.twu.biblioteca;
 public class Controller {
 
     private StartMenu startMenu;
-    private User user;
     private Library library;
     private ConsoleInput consoleInput;
     private Display display;
+    private User user;
 
     public Controller(Display display, ConsoleInput consoleInput, Library library, StartMenu startMenu) {
         this.display = display;
@@ -17,6 +17,7 @@ public class Controller {
     }
 
     public void delegate(String option, User user) {
+        this.user = user;
         if (option.equals("1"))
             display.displayBookList();
         else if (option.equals("2"))
@@ -29,6 +30,8 @@ public class Controller {
             checkIn(this.user);
         else if (option.equals("7") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
             display.displayMessage(user.toString());
+        else if (option.equals("8") && (user.getRole().equals("librarian")))
+            System.out.println(library.getCheckedOutUsers());
         else
             display.displayInvalidOptionMessage();
     }

@@ -10,6 +10,7 @@ public class Library {
     private ArrayList<Movie> availableMovies;
     private ArrayList<Book> availableBooks;
     private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+    private User user;
     private HashMap<Book, User> checkedOutUsers = new HashMap<Book, User>();
 
     public Library(ArrayList<Book> listOfBooks, ArrayList<Movie> listOfMovies) {
@@ -22,6 +23,7 @@ public class Library {
     }
 
     public boolean checkedOut(String bookName, User user) {
+        this.user=user;
         Iterator<Book> iterator = availableBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
@@ -36,12 +38,13 @@ public class Library {
     }
 
     public boolean checkedIn(String bookName, User user) {
+        this.user=user;
         Iterator<Book> iterator = checkedOutBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
             if (book.findByBookName(bookName)) {
                 availableBooks.add(book);
-                checkedOutUsers.remove(book, user);
+                checkedOutUsers.remove(book);
                 iterator.remove();
                 return true;
             }
@@ -80,7 +83,11 @@ public class Library {
         return false;
     }
 
-    public HashMap<Book, User> getCheckedOutUsers() {
-        return checkedOutUsers;
+    public String getCheckedOutUsers() {
+        String checkedOutUsersList="";
+        for(Book book:checkedOutUsers.keySet()) {
+            checkedOutUsersList=book.getDetails()+checkedOutUsers.get(book)+checkedOutUsersList;
+        }
+        return checkedOutUsersList;
     }
 }
