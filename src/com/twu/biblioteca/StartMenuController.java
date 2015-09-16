@@ -44,8 +44,11 @@ public class StartMenuController {
                 else
                     controller.delegate(input, user);
             }
-        } else {
+        } else if(option.equals("3")){
             System.exit(0);
+        }
+        else {
+            System.out.println("Enter valid option");
         }
     }
 }
