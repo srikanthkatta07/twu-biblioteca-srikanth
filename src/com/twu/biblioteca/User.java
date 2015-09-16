@@ -43,4 +43,8 @@ public class User {
     public int hashCode() {
         return libraryNumber.hashCode();
     }
+
+    public String getRole() {
+        return role;
+    }
 }

@@ -44,4 +44,11 @@ public class UserTest {
 
         assertNotEquals(user1, user2);
     }
+
+    @Test
+    public void shouldGiveTheRoleOfTheUser() {
+        User user1 = new User("123-7777", "abcd123", "srikanth", "9666837099", "srikant@gmail.com", "user");
+
+        assertEquals("user", user1.getRole());
+    }
 }
