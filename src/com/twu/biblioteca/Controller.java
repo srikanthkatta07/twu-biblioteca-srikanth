@@ -18,17 +18,17 @@ public class Controller {
         if (option.equals("1"))
             display.displayBookList();
         else if (option.equals("2"))
-            checkOut();
+            display.displayMovieList();
         else if (option.equals("3"))
-            checkIn();
+            checkOutMovie();
         else if (option.equals("4"))
             display.exitMenu();
-        else if (option.equals("5"))
-            display.displayMovieList();
-        else if (option.equals("6"))
-            checkOutMovie();
-        else
-            display.displayInvalidCommand();
+        else if(option.equals("5") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
+            checkOut();
+        else if(option.equals("6") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
+            checkIn();
+        else if(option.equals("7") && ((user.getRole().equals("user")) || (user.getRole().equals("librarian"))))
+            display.displayMessage(user.toString());
     }
 
     private void checkOutMovie() {

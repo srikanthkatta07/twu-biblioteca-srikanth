@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ControllerTest {
@@ -18,7 +19,7 @@ public class ControllerTest {
     @Before
     public void setUp() {
         consoleInput = new ConsoleInput();
-        user=mock(User.class);
+        user = mock(User.class);
         listOfBooks = new ArrayList<Book>();
         movies = new ArrayList<Movie>();
         library = new Library(listOfBooks, movies);
@@ -29,19 +30,30 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("1",user);
+        controller.delegate("1", user);
 
         verify(display, times(1)).displayBookList();
     }
 
     @Test
-    public void shouldDisplayInvalidMessageWhenUserEntersInvalidOption() {
+    public void shouldDelegateTheDisplayingListOfMoviesWhenUserEntersOptionTwo() {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("abcd",user);
+        controller.delegate("2", user);
 
-        verify(display, times(1)).displayInvalidCommand();
+        verify(display, times(1)).displayMovieList();
+    }
+
+    @Test
+    public void shouldTakeTheNameOfTheMovieFromTheUserToCheckedOutWhenUserEnterOptionThree() {
+        Display display = mock(Display.class);
+        ConsoleInput consoleInput = mock(ConsoleInput.class);
+        Controller controller = new Controller(display, consoleInput, library);
+
+        controller.delegate("3", user);
+
+        verify(consoleInput, times(1)).takeInput();
     }
 
     @Test
@@ -49,51 +61,45 @@ public class ControllerTest {
         Display display = mock(Display.class);
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("4",user);
+        controller.delegate("4", user);
 
         verify(display, times(1)).exitMenu();
     }
 
     @Test
-    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedOutWhenUserEntersOptionTwo() {
+    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedOutWhenUserEntersOptionFive() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
+        User user = new User("default", "default", "default", "default", "default", "user");
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("2",user);
+        controller.delegate("5", user);
 
         verify(consoleInput, times(1)).takeInput();
     }
 
     @Test
-    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedInWhenUserEnterOptionThree() {
+    public void shouldTakeTheNameOfTheBookFromTheUserToCheckedInWhenUserEntersOptionSix() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
+        User user = new User("default", "default", "default", "default", "default", "user");
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("3",user);
+        controller.delegate("6", user);
 
         verify(consoleInput, times(1)).takeInput();
     }
 
     @Test
-    public void shouldDelegateTheDisplayingListOfMoviesWhenUserEntersOptionFive() {
-        Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput, library);
-
-        controller.delegate("5",user);
-
-        verify(display, times(1)).displayMovieList();
-    }
-
-    @Test
-    public void shouldTakeTheNameOfTheMovieFromTheUserToCheckedOutWhenUserEnterOptionSix() {
-        Display display = mock(Display.class);
+    public void shouldDelegateToDisplayTheUserDetailsWhenUserEnterOptionSeven() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
+        Library library = mock(Library.class);
+        Display display = mock(Display.class);
+        User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "user");
         Controller controller = new Controller(display, consoleInput, library);
 
-        controller.delegate("6",user);
+        controller.delegate("7", user);
 
-        verify(consoleInput, times(1)).takeInput();
+        verify(display).displayMessage(String.format("srikanth" + "\t" + "9666837099" + "\t" + "s@gmail.com" + "\t" + "user"));
     }
 }
