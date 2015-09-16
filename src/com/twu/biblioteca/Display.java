@@ -62,4 +62,8 @@ public class Display {
     public void displayUnSuccessfulMovieCheckOut() {
         System.out.println("That movie is not available");
     }
+
+    public void displayInvalidLoginMessage() {
+        System.out.println("Please provide valid details");
+    }
 }

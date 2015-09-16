@@ -223,4 +223,16 @@ public class DisplayTest {
         assertEquals("That movie is not available\n", outContent.toString());
     }
 
+    @Test
+    public void shouldDisplayInvalidLoginMessageToTheUser() {
+        ArrayList<Book> listOfBooks = new ArrayList<Book>();
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        Library library = new Library(listOfBooks, movies);
+        Display display = new Display(library);
+
+        display.displayInvalidLoginMessage();
+
+        assertEquals("Please provide valid details\n", outContent.toString());
+    }
+
 }
