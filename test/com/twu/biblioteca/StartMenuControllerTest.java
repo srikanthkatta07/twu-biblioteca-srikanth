@@ -1,19 +1,15 @@
 package com.twu.biblioteca;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
+import java.io.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class StartMenuControllerTest {
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -82,5 +78,4 @@ public class StartMenuControllerTest {
         assertEquals("Enter valid option\n", outContent.toString());
 
     }
-
 }

@@ -1,9 +1,7 @@
 //It has books and it can be checked out and checked in
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 public class Library {
 
@@ -23,7 +21,7 @@ public class Library {
     }
 
     public boolean checkedOut(String bookName, User user) {
-        this.user=user;
+        this.user = user;
         Iterator<Book> iterator = availableBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
@@ -38,7 +36,7 @@ public class Library {
     }
 
     public boolean checkedIn(String bookName, User user) {
-        this.user=user;
+        this.user = user;
         Iterator<Book> iterator = checkedOutBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
@@ -84,9 +82,9 @@ public class Library {
     }
 
     public String getCheckedOutUsers() {
-        String checkedOutUsersList="";
-        for(Book book:checkedOutUsers.keySet()) {
-            checkedOutUsersList=book.getDetails()+checkedOutUsers.get(book)+checkedOutUsersList;
+        String checkedOutUsersList = "";
+        for (Book book : checkedOutUsers.keySet()) {
+            checkedOutUsersList = book.getDetails() + checkedOutUsers.get(book) + checkedOutUsersList;
         }
         return checkedOutUsersList;
     }

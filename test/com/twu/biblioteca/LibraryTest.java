@@ -1,10 +1,8 @@
 package com.twu.biblioteca;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -162,7 +160,7 @@ public class LibraryTest {
         Library library = new Library(listOfBooks, movies);
         library.checkedOut("Twostates", user);
 
-        String format = String.format("%-20S%-20S%-20S%-20S%-20S%-20S%-20S\n", "TWOSTATES", "CHETAN",2008,"srikanth","9666837099","s@gmail.com","librarian");
+        String format = String.format("%-20S%-20S%-20S%-20S%-20S%-20S%-20S\n", "TWOSTATES", "CHETAN", 2008, "srikanth", "9666837099", "s@gmail.com", "librarian");
 
         assertEquals(format, library.getCheckedOutUsers());
     }
@@ -182,7 +180,7 @@ public class LibraryTest {
         library.checkedOut("Fivepoints", user);
         library.checkedIn("Twostates", user);
 
-        String format = String.format("%-20S%-20S%-20S%-20S%-20S%-20S%-20S\n", "FIVEPOINTS", "CHETAN",2008,"srikanth","9666837099","s@gmail.com","librarian");
+        String format = String.format("%-20S%-20S%-20S%-20S%-20S%-20S%-20S\n", "FIVEPOINTS", "CHETAN", 2008, "srikanth", "9666837099", "s@gmail.com", "librarian");
 
         assertEquals(format, library.getCheckedOutUsers());
     }

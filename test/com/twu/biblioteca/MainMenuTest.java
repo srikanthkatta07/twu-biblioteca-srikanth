@@ -38,5 +38,4 @@ public class MainMenuTest {
 
         assertEquals("1.ListOfBooks\n", outContent.toString());
     }
-
 }

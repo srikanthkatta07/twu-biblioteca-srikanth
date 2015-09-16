@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import static org.mockito.Mockito.*;

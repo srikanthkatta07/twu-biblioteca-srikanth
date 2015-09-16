@@ -18,7 +18,6 @@ public class BibliotecaApplication {
     }
 
     public void start() {
-
         LibraryFactory libraryFactory = new LibraryFactory();
         Library library = libraryFactory.setUp();
         Display display = new Display(library);

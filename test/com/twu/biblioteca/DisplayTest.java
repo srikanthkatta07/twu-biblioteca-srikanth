@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import org.junit.*;
-import org.junit.contrib.java.lang.system.ExpectedSystemExit;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,6 +8,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class DisplayTest {
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private ArrayList<Movie> movies;
 
@@ -221,6 +221,4 @@ public class DisplayTest {
 
         assertEquals("Enter valid option\n", outContent.toString());
     }
-
-
 }

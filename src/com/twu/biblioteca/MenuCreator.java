@@ -1,8 +1,10 @@
+//creation of menu lists based on user or librarian
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
 public class MenuCreator {
+
     private User user;
     private ArrayList<String> menuList = new ArrayList<String>();
 

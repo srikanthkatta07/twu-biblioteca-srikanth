@@ -1,3 +1,4 @@
+//Controller for controller initial menu options
 package com.twu.biblioteca;
 
 public class StartMenuController {
@@ -23,31 +24,29 @@ public class StartMenuController {
                 menuCreator = new MenuCreator(user);
                 mainMenu = new MainMenu(menuCreator.addMenuItem());
                 mainMenu.showMenuList();
-                while(true) {
-                    String input=consoleInput.takeInput();
-                    if(input.equals("4"))
+                while (true) {
+                    String input = consoleInput.takeInput();
+                    if (input.equals("4"))
                         break;
                     else
                         controller.delegate(input, user);
                 }
-            }
-            else{
+            } else {
                 System.out.println("Please provide valid details");
             }
         } else if (option.equals("2")) {
             mainMenu.showMenuList();
             user = new User("default", "default", "default", "default", "default", "default");
-            while(true) {
-                String input=consoleInput.takeInput();
-                if(input.equals("4"))
+            while (true) {
+                String input = consoleInput.takeInput();
+                if (input.equals("4"))
                     break;
                 else
                     controller.delegate(input, user);
             }
-        } else if(option.equals("3")){
+        } else if (option.equals("3")) {
             System.exit(0);
-        }
-        else {
+        } else {
             System.out.println("Enter valid option");
         }
     }

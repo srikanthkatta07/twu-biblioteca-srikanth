@@ -1,4 +1,4 @@
-//showing the list of option available to the user
+//showing the list of main options available to the user
 package com.twu.biblioteca;
 
 import java.util.ArrayList;

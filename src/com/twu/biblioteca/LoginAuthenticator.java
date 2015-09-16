@@ -1,3 +1,4 @@
+//Authenticate the user based on library number and password
 package com.twu.biblioteca;
 
 import java.util.ArrayList;

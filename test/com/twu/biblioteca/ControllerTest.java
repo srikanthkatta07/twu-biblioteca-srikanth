@@ -1,11 +1,9 @@
 package com.twu.biblioteca;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ControllerTest {
@@ -106,7 +104,7 @@ public class ControllerTest {
 
         controller.delegate("7", user);
 
-        verify(display).displayMessage(String.format("%-20S%-20S%-20S%-20S\n","srikanth","9666837099","s@gmail.com","user"));
+        verify(display).displayMessage(String.format("%-20S%-20S%-20S%-20S\n", "srikanth", "9666837099", "s@gmail.com", "user"));
     }
 
     @Test
@@ -121,6 +119,7 @@ public class ControllerTest {
 
         verify(display).displayInvalidOptionMessage();
     }
+
     @Test
     public void shouldDelegateToLibraryToDisplayTheListOfCheckedOutUsers() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
@@ -133,6 +132,4 @@ public class ControllerTest {
 
         verify(library).getCheckedOutUsers();
     }
-
-
 }

@@ -17,5 +17,4 @@ public class ConsoleInputTest {
 
         assertEquals("2", consoleInput.takeInput());
     }
-
 }
