@@ -66,16 +66,18 @@ public class StartMenuControllerTest {
     }
 
     @Test
-    public void shouldDisplayInvalidMessageWhenHeEntersWrongOption() {
+    public void shouldDisplayInvalidLoginOptionIfUserEntersWrongCredentials() {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
         Controller controller = mock(Controller.class);
         StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
 
-        startMenuController.delegate("4");
+        when(loginAuthenticator.authenticate("abc","abc")).thenReturn(null);
+        startMenuController.delegate("1");
 
-        assertEquals("Enter valid option\n", outContent.toString());
-
+        assertEquals("Please provide valid details\n",outContent.toString());
     }
+
+
 }
