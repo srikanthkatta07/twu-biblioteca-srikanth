@@ -1,19 +1,19 @@
-//It delegates the choices based on user or librarian or default user
+//It delegates the options based on user or librarian or default user
 package com.twu.biblioteca;
 
-public class Controller {
+public class OptionController {
 
-    private StartMenu startMenu;
+    private LoginMenu loginMenu;
     private Library library;
     private ConsoleInput consoleInput;
     private Display display;
     private User user;
 
-    public Controller(Display display, ConsoleInput consoleInput, Library library, StartMenu startMenu) {
+    public OptionController(Display display, ConsoleInput consoleInput, Library library, LoginMenu loginMenu) {
         this.display = display;
         this.consoleInput = consoleInput;
         this.library = library;
-        this.startMenu = startMenu;
+        this.loginMenu = loginMenu;
     }
 
     public void delegate(String option, User user) {

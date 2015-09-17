@@ -1,4 +1,4 @@
-//Initializing the list of menu options
+//Which set up list of menu options
 package com.twu.biblioteca;
 
 import java.util.ArrayList;

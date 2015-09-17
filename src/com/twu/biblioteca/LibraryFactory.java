@@ -1,4 +1,4 @@
-//Initializing the list of books in the library
+//Which set up predefined books in the library
 package com.twu.biblioteca;
 
 import java.util.ArrayList;

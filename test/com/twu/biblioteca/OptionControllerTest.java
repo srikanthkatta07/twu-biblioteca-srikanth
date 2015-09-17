@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
-public class ControllerTest {
+public class OptionControllerTest {
 
     private ConsoleInput consoleInput;
     private Library library;
     private ArrayList<Book> listOfBooks;
     private ArrayList<Movie> movies;
     private User user;
-    private StartMenu startMenu;
+    private LoginMenu loginMenu;
 
     @Before
     public void setUp() {
@@ -22,15 +22,15 @@ public class ControllerTest {
         listOfBooks = new ArrayList<Book>();
         movies = new ArrayList<Movie>();
         library = new Library(listOfBooks, movies);
-        startMenu = mock(StartMenu.class);
+        loginMenu = mock(LoginMenu.class);
     }
 
     @Test
     public void shouldDelgateToTheDisplayingBookListIfUserEnterOptionOne() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("1", user);
+        optionController.delegate("1", user);
 
         verify(display, times(1)).displayBookList();
     }
@@ -38,9 +38,9 @@ public class ControllerTest {
     @Test
     public void shouldDelegateTheDisplayingListOfMoviesWhenUserEntersOptionTwo() {
         Display display = mock(Display.class);
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("2", user);
+        optionController.delegate("2", user);
 
         verify(display, times(1)).displayMovieList();
     }
@@ -49,9 +49,9 @@ public class ControllerTest {
     public void shouldTakeTheNameOfTheMovieFromTheUserToCheckedOutWhenUserEnterOptionThree() {
         Display display = mock(Display.class);
         ConsoleInput consoleInput = mock(ConsoleInput.class);
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("3", user);
+        optionController.delegate("3", user);
 
         verify(consoleInput, times(1)).takeInput();
     }
@@ -63,9 +63,9 @@ public class ControllerTest {
         Library library = mock(Library.class);
         Display display = mock(Display.class);
         User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "user");
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("4", user);
+        optionController.delegate("4", user);
 
     }
 
@@ -75,9 +75,9 @@ public class ControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
         User user = new User("default", "default", "default", "default", "default", "user");
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("5", user);
+        optionController.delegate("5", user);
 
         verify(consoleInput, times(1)).takeInput();
     }
@@ -87,9 +87,9 @@ public class ControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         Display display = mock(Display.class);
         User user = new User("default", "default", "default", "default", "default", "user");
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("6", user);
+        optionController.delegate("6", user);
 
         verify(consoleInput, times(1)).takeInput();
     }
@@ -100,9 +100,9 @@ public class ControllerTest {
         Library library = mock(Library.class);
         Display display = mock(Display.class);
         User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "user");
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("7", user);
+        optionController.delegate("7", user);
 
         verify(display).displayMessage(String.format("%-20S%-20S%-20S%-20S", "srikanth", "9666837099", "s@gmail.com", "user"));
     }
@@ -113,9 +113,9 @@ public class ControllerTest {
         Library library = mock(Library.class);
         Display display = mock(Display.class);
         User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "user");
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("9", user);
+        optionController.delegate("9", user);
 
         verify(display).displayInvalidOptionMessage();
     }
@@ -126,9 +126,9 @@ public class ControllerTest {
         Library library = mock(Library.class);
         Display display = mock(Display.class);
         User user = new User("123-777", "abcd", "srikanth", "9666837099", "s@gmail.com", "librarian");
-        Controller controller = new Controller(display, consoleInput, library, startMenu);
+        OptionController optionController = new OptionController(display, consoleInput, library, loginMenu);
 
-        controller.delegate("8", user);
+        optionController.delegate("8", user);
 
         verify(library).getCheckedOutUsers();
     }

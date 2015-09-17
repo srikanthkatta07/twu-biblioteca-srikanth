@@ -1,4 +1,4 @@
-//application which setup the library and menu list
+//which starts the application and setup the library and users,menu lists
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
@@ -21,18 +21,18 @@ public class BibliotecaApplication {
         LibraryFactory libraryFactory = new LibraryFactory();
         Library library = libraryFactory.setUp();
         Display display = new Display(library);
-        StartMenu startMenu = new StartMenu();
+        LoginMenu loginMenu = new LoginMenu();
         display.displayMessage("Welcome to Biblioteca");
         while (true) {
-            startMenu.showStartMenuList();
+            loginMenu.showLoginMenuList();
             UserFactory userFactory = new UserFactory();
             MenuFactory menuFactory = new MenuFactory();
             ArrayList<String> menuList = menuFactory.setUp();
             MainMenu mainMenu = new MainMenu(menuList);
             LoginAuthenticator loginAuthenticator = new LoginAuthenticator(userFactory.setUp());
-            Controller controller = new Controller(display, new ConsoleInput(), library, startMenu);
-            StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
-            startMenuController.delegate(consoleInput.takeInput());
+            OptionController optionController = new OptionController(display, new ConsoleInput(), library, loginMenu);
+            LoginMenuController loginMenuController = new LoginMenuController(consoleInput, loginAuthenticator, mainMenu, optionController);
+            loginMenuController.delegate(consoleInput.takeInput());
         }
     }
 }

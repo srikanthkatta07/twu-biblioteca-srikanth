@@ -1,4 +1,4 @@
-//List of predefined users
+//Which set up the predefined list of users
 package com.twu.biblioteca;
 
 import java.util.ArrayList;

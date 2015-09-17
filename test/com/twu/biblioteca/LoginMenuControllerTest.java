@@ -8,7 +8,7 @@ import java.io.*;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class StartMenuControllerTest {
+public class LoginMenuControllerTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -30,10 +30,10 @@ public class StartMenuControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
-        Controller controller = mock(Controller.class);
-        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
+        OptionController optionController = mock(OptionController.class);
+        LoginMenuController loginMenuController = new LoginMenuController(consoleInput, loginAuthenticator, mainMenu, optionController);
 
-        startMenuController.delegate("1");
+        loginMenuController.delegate("1");
 
         verify(loginAuthenticator, times(1)).authenticate(null, null);
     }
@@ -43,11 +43,11 @@ public class StartMenuControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
-        Controller controller = mock(Controller.class);
-        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
+        OptionController optionController = mock(OptionController.class);
+        LoginMenuController loginMenuController = new LoginMenuController(consoleInput, loginAuthenticator, mainMenu, optionController);
 
         when(consoleInput.takeInput()).thenReturn("4");
-        startMenuController.delegate("2");
+        loginMenuController.delegate("2");
 
         verify(mainMenu, times(1)).showMenuList();
     }
@@ -57,12 +57,12 @@ public class StartMenuControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
-        Controller controller = mock(Controller.class);
-        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
+        OptionController optionController = mock(OptionController.class);
+        LoginMenuController loginMenuController = new LoginMenuController(consoleInput, loginAuthenticator, mainMenu, optionController);
 
         exit.expectSystemExit();
 
-        startMenuController.delegate("3");
+        loginMenuController.delegate("3");
     }
 
     @Test
@@ -70,13 +70,13 @@ public class StartMenuControllerTest {
         ConsoleInput consoleInput = mock(ConsoleInput.class);
         LoginAuthenticator loginAuthenticator = mock(LoginAuthenticator.class);
         MainMenu mainMenu = mock(MainMenu.class);
-        Controller controller = mock(Controller.class);
-        StartMenuController startMenuController = new StartMenuController(consoleInput, loginAuthenticator, mainMenu, controller);
+        OptionController optionController = mock(OptionController.class);
+        LoginMenuController loginMenuController = new LoginMenuController(consoleInput, loginAuthenticator, mainMenu, optionController);
 
-        when(loginAuthenticator.authenticate("abc","abc")).thenReturn(null);
-        startMenuController.delegate("1");
+        when(loginAuthenticator.authenticate("abc", "abc")).thenReturn(null);
+        loginMenuController.delegate("1");
 
-        assertEquals("Please provide valid details\n",outContent.toString());
+        assertEquals("Please provide valid details\n", outContent.toString());
     }
 
 

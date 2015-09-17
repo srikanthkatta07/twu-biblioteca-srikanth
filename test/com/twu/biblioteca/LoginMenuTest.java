@@ -7,7 +7,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class StartMenuTest {
+public class LoginMenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -25,9 +25,9 @@ public class StartMenuTest {
     @Test
     public void shouldDisplayListOfAvailableOptionsToTheUser() {
 
-        StartMenu startMenu = new StartMenu();
+        LoginMenu loginMenu = new LoginMenu();
 
-        startMenu.showStartMenuList();
+        loginMenu.showLoginMenuList();
 
         assertEquals("1.LogIn\n2.As Guest\n3.Quit\n", outContent.toString());
     }

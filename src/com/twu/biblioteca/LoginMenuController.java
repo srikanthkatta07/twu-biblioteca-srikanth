@@ -1,20 +1,20 @@
-//Controller for controller initial menu options
+//Controller for delegating the login menu options
 package com.twu.biblioteca;
 
-public class StartMenuController {
+public class LoginMenuController {
 
     private MainMenu mainMenu;
-    private Controller controller;
+    private OptionController optionController;
     private LoginAuthenticator loginAuthenticator;
     private ConsoleInput consoleInput;
     private User user;
     private MenuCreator menuCreator;
 
-    public StartMenuController(ConsoleInput consoleInput, LoginAuthenticator loginAuthenticator, MainMenu mainMenu, Controller controller) {
+    public LoginMenuController(ConsoleInput consoleInput, LoginAuthenticator loginAuthenticator, MainMenu mainMenu, OptionController optionController) {
         this.consoleInput = consoleInput;
         this.loginAuthenticator = loginAuthenticator;
         this.mainMenu = mainMenu;
-        this.controller = controller;
+        this.optionController = optionController;
     }
 
     public void delegate(String option) {
@@ -29,7 +29,7 @@ public class StartMenuController {
                     if (input.equals("4"))
                         break;
                     else
-                        controller.delegate(input, user);
+                        optionController.delegate(input, user);
                 }
             } else {
                 System.out.println("Please provide valid details");
@@ -42,7 +42,7 @@ public class StartMenuController {
                 if (input.equals("4"))
                     break;
                 else
-                    controller.delegate(input, user);
+                    optionController.delegate(input, user);
             }
         } else if (option.equals("3")) {
             System.exit(0);

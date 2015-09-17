@@ -1,4 +1,4 @@
-//It has books and it can be checked out and checked in
+//It has books and movies that can be checked out and checked in
 package com.twu.biblioteca;
 
 import java.util.*;
