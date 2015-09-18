@@ -19,29 +19,37 @@ public class LoginMenuController {
 
     public void delegate(String option) {
         if (option.equals("1")) {
-            user = loginAuthenticator.authenticate(consoleInput.takeInput(), consoleInput.takeInput());
+            System.out.println("Enter the library number:");
+            String libraryNumber = consoleInput.takeInput();
+            System.out.println("Enter the password:");
+            String password = consoleInput.takeInput();
+            user = loginAuthenticator.authenticate(libraryNumber, password);
             if (user != null) {
+                System.out.println("Sucessfully Logged In");
                 menuCreator = new MenuCreator(user);
                 mainMenu = new MainMenu(menuCreator.addMenuItem());
                 mainMenu.showMenuList();
                 while (true) {
                     String input = consoleInput.takeInput();
-                    if (input.equals("4"))
+                    if (input.equals("4")) {
+                        System.out.println("Sucessfully Logged out");
                         break;
-                    else
+                    } else
                         optionController.delegate(input, user);
                 }
             } else {
                 System.out.println("Please provide valid details");
             }
         } else if (option.equals("2")) {
+            System.out.println("Sucessfully Logged In");
             mainMenu.showMenuList();
             user = new User("default", "default", "default", "default", "default", "default");
             while (true) {
                 String input = consoleInput.takeInput();
-                if (input.equals("4"))
+                if (input.equals("4")) {
+                    System.out.println("Sucessfully Logged out");
                     break;
-                else
+                } else
                     optionController.delegate(input, user);
             }
         } else if (option.equals("3")) {

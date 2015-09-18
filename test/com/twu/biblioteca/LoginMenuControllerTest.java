@@ -73,11 +73,9 @@ public class LoginMenuControllerTest {
         OptionController optionController = mock(OptionController.class);
         LoginMenuController loginMenuController = new LoginMenuController(consoleInput, loginAuthenticator, mainMenu, optionController);
 
-        when(loginAuthenticator.authenticate("abc", "abc")).thenReturn(null);
         loginMenuController.delegate("1");
+        when(loginAuthenticator.authenticate("abc", "abc")).thenReturn(null);
 
-        assertEquals("Please provide valid details\n", outContent.toString());
+        assertEquals("Enter the library number:\n" + "Enter the password:\n" + "Please provide valid details\n", outContent.toString());
     }
-
-
 }
