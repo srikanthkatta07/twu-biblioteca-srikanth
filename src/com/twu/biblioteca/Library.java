@@ -40,7 +40,7 @@ public class Library {
         Iterator<Book> iterator = checkedOutBooks.iterator();
         while (iterator.hasNext()) {
             Book book = iterator.next();
-            if (book.findByBookName(bookName)) {
+            if (book.findByBookName(bookName) && (checkedOutUsers.get(book).equals(user))) {
                 availableBooks.add(book);
                 checkedOutUsers.remove(book);
                 iterator.remove();
